@@ -1,0 +1,1060 @@
+{
+	"info": {
+		"_postman_id": "2b38152f-b5d6-4efe-909d-55ed86f769aa",
+		"name": "Plan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29152062"
+	},
+	"item": [
+		{
+			"name": "Crear una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"plataforma_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Netflix\",\r\n    \"sitioWeb\": \"https://www.netflix.com/co/\",\r\n    \"logo\": \"https://brand.netflix.com/en/assets/logos/\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una plataforma",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Netflix\",\r\n    \"sitioWeb\": \"https://www.netflix.com/co/\",\r\n    \"logo\": \"https://brand.netflix.com/en/assets/logos/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataformas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Netflix\",\r\n    \"sitioWeb\": \"https://www.netflix.com/co/\",\r\n    \"logo\": \"https://brand.netflix.com/en/assets/logos/\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un plan",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"plan_id_1\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"imagen\": \"https://www.freepik.es/fotos-vectores-gratis/estrella-animada\",\r\n    \"nombre\": \"Basico\",\r\n    \"precio\": 12500,\r\n    \"puntaje\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataforma",
+						"{{plataforma_id}}",
+						"planes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un plan",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Basico\",\r\n    \"precio\": 12500,\r\n    \"puntaje\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataforma",
+								"{{plataforma_id}}",
+								"planes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"imagen\": \"https://www.freepik.es/fotos-vectores-gratis/estrella-animada\",\n    \"nombre\": \"Basico\",\n    \"precio\": 12500,\n    \"puntaje\":5,\n    \"plataforma\": {\n        \"id\": {{plataforma_id}}}\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un plan 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"plan_id_2\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"imagen\": \"https://www.freepik.es/fotos-vectores-gratis/estrella-animada\",\r\n    \"nombre\": \"Premium\",\r\n    \"precio\": 20500,\r\n    \"puntaje\":10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataforma",
+						"{{plataforma_id}}",
+						"planes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un plan",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Basico\",\r\n    \"precio\": 12500,\r\n    \"puntaje\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataforma",
+								"{{plataforma_id}}",
+								"planes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"imagen\": \"https://www.freepik.es/fotos-vectores-gratis/estrella-animada\",\n    \"nombre\": \"Basico\",\n    \"precio\": 12500,\n    \"puntaje\":5,\n    \"plataforma\": {\n        \"id\": {{plataforma_id}}}\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un plan a una plataforma inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Plataforma no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"imagen\": \"https://www.freepik.es/fotos-vectores-gratis/estrella-animada\",\r\n    \"nombre\": \"Basico\",\r\n    \"precio\": 12500,\r\n    \"puntaje\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataforma/0/planes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataforma",
+						"0",
+						"planes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un plan a una plataforma inexistente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Basico\",\r\n    \"precio\": 12500,\r\n    \"puntaje\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataforma/0/planes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataforma",
+								"0",
+								"planes"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 20:01:09\",\n        \"message\": \"Plataforma no encontrada\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los planes de una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of planes > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataforma",
+						"{{plataforma_id}}",
+						"planes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los planes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataforma",
+								"{{plataforma_id}}",
+								"planes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"imagen\": \"https://www.freepik.es/fotos-vectores-gratis/estrella-animada\",\n        \"nombre\": \"Basico\",\n        \"precio\": 12500,\n        \"puntaje\":5,\n        \"plataforma\": {\n            \"id\": {{plataforma_id}}\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener un plan de una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes/{{plan_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataforma",
+						"{{plataforma_id}}",
+						"planes",
+						"{{plan_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un plan de una plataforma",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes/{{plan_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataforma",
+								"{{plataforma_id}}",
+								"planes",
+								"{{plan_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"imagen\": \"https://www.freepik.es/fotos-vectores-gratis/estrella-animada\",\n    \"nombre\": \"Basico\",\n    \"precio\": 12500,\n    \"puntaje\":5,\n    \"plataforma\": {\n        \"id\": 1,\n        \"nombre\": \"Netflix\",\n        \"sitioWeb\": \"https://www.netflix.com/co/\",\n        \"logo\": \"https://brand.netflix.com/en/assets/logos/\"}\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener plan inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Plan no encontrado\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataforma",
+						"{{plataforma_id}}",
+						"planes",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener plan inexistente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataforma",
+								"{{plataforma_id}}",
+								"planes",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 20:01:09\",\r\n        \"message\": \"Plan no encontrado\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Editar un plan de una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"imagen\": \"https://www.freepik.es/fotos-vectores-gratis/estrella-animada\",\r\n    \"nombre\": \"Basico\",\r\n    \"precio\": 13000,\r\n    \"puntaje\":6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes/{{plan_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataforma",
+						"{{plataforma_id}}",
+						"planes",
+						"{{plan_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Editar un plan de una plataforma",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Basico\",\r\n    \"precio\": 13000,\r\n    \"puntaje\":6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes/{{plan_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataforma",
+								"{{plataforma_id}}",
+								"planes",
+								"{{plan_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"imagen\": \"https://www.freepik.es/fotos-vectores-gratis/estrella-animada\",\n    \"nombre\": \"Basico\",\n    \"precio\": 13000,\n    \"puntaje\":6,\n    \"plataforma\": {\n        \"id\": {{plataforma_id}}\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Editar un plan de una plataforma inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Plataforma no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"imagen\": \"https://www.freepik.es/fotos-vectores-gratis/estrella-animada\",\r\n    \"nombre\": \"Basico\",\r\n    \"precio\": 13000,\r\n    \"puntaje\":6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataforma/0/planes/{{plan_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataforma",
+						"0",
+						"planes",
+						"{{plan_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Editar un plan de una plataforma inexistente",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Basico\",\r\n    \"precio\": 13000,\r\n    \"puntaje\":6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataforma/0/planes/{{plan_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataforma",
+								"0",
+								"planes",
+								"{{plan_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:04:10\",\n        \"message\": \"Plataforma no encontrada\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Editar un plan inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Plan no encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"imagen\": \"https://www.freepik.es/fotos-vectores-gratis/estrella-animada\",\r\n    \"nombre\": \"Basico\",\r\n    \"precio\": 13000,\r\n    \"puntaje\":6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataforma",
+						"{{plataforma_id}}",
+						"planes",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Editar un plan inexistente",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Basico\",\r\n    \"precio\": 13000,\r\n    \"puntaje\":6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataforma",
+								"{{plataforma_id}}",
+								"planes",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:04:10\",\r\n        \"message\": \"Plan no encontrado\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar un plan",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes/{{plan_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataforma",
+						"{{plataforma_id}}",
+						"planes",
+						"{{plan_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un plan",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plantaforma_id}}/planes/{{plan_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plantaforma_id}}",
+								"planes",
+								"{{plan_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrarle un plan a una plataforma inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Plataforma no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataforma/0/planes/{{plan_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataforma",
+						"0",
+						"planes",
+						"{{plan_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrarle un plan a una plataforma inexistente",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataforma/0/planes/{{plan_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataforma",
+								"0",
+								"planes",
+								"{{plan_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:04:10\",\n        \"message\": \"Plataforma no encontrada\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar un plan inexistente a una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Plan no encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataforma",
+						"{{plataforma_id}}",
+						"planes",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un plan inexistente a una plataforma",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataforma/{{plataforma_id}}/planes/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataforma",
+								"{{plataforma_id}}",
+								"planes",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:04:10\",\n        \"message\": \"Plan no encontrado\"\n    }\n}"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,1097 @@
+{
+	"info": {
+		"_postman_id": "9014f87d-41f5-42c6-a8e4-8a9049b6452e",
+		"name": "Episodio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29104017"
+	},
+	"item": [
+		{
+			"name": "Crear una serie Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"serie_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Saint Seiya\",\r\n    \"imagen\": \"Saint Seiya.png\",\r\n    \"wallpaper\": \"Saint Seiya.png\",\r\n    \"sinopsis\": \"A group a young warriors known as 'Saints', each in possession of a 'cloth' guarded by a different constellation, must protect the reincarnation of the goddess Athena as she attempts to keep the Earth from being destroyed by evil forces.\",\r\n    \"anio\": 1986\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una serie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"Peaky Blinders\",\n    \"imagen\": \"PeakyBlinders.png\",\n    \"wallpaper\": \"PeakyBlinders.png\",\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\n    \"anio\": 2013\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un episodio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"episodio_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numeroEpisodio\": 1,\r\n    \"nombre\": \"Las leyendas de una nueva era\",\r\n    \"resumen\": \"Comienza la aventura de Seiya\",\r\n    \"duracionMinutos\": 24,\r\n    \"imagen\": \"seiya.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serie",
+						"{{serie_id}}",
+						"episodios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un episodio",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroEpisodio\": 1,\r\n    \"nombre\": \"Las leyendas de una nueva era\",\r\n    \"resumen\": \"Comienza la aventura de Seiya\",\r\n    \"duracionMinutos\": 24,\r\n    \"imagen\": \"seiya.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serie",
+								"{{serie_id}}",
+								"episodios"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"numeroEpisodio\": 1,\n    \"nombre\": \"Las leyendas de una nueva era\",\n    \"resumen\": \"Comienza la aventura de Seiya\",\n    \"duracionMinutos\": 24,\n    \"imagen\": \"seiya.png\",\n    \"serie\": {\n        \"id\": 1,\n        \"nombre\": \"Saint Seiya\",\n        \"imagen\": \"saintSeiya.png\",\n        \"sinopsis\": \"Los caballeros de Athena luchan contra el mal.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un episodio 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"episodio_id_2\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numeroEpisodio\": 2,\r\n    \"nombre\": \"Cuando Seiya viste la armadura de Pegaso\",\r\n    \"resumen\": \"Seiya pelea\",\r\n    \"duracionMinutos\": 24,\r\n    \"imagen\": \"pegaso.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serie",
+						"{{serie_id}}",
+						"episodios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un episodio 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroEpisodio\": 2,\r\n    \"nombre\": \"Cuando Seiya viste la armadura de Pegaso\",\r\n    \"resumen\": \"Seiya pelea\",\r\n    \"duracionMinutos\": 24,\r\n    \"imagen\": \"pegaso.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serie",
+								"{{serie_id}}",
+								"episodios"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"numeroEpisodio\": 2,\n    \"nombre\": \"Cuando Seiya viste la armadura de Pegaso\",\n    \"resumen\": \"Seiya pelea\",\n    \"duracionMinutos\": 24,\n    \"imagen\": \"pegaso.png\",\n    \"serie\": {\n        \"id\": 1,\n        \"nombre\": \"Saint Seiya\",\n        \"imagen\": \"saintSeiya.png\",\n        \"sinopsis\": \"Los caballeros de Athena luchan contra el mal.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un episodio a una serie inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Serie no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numeroEpisodio\": 1,\r\n    \"nombre\": \"Las leyendas de una nueva era\",\r\n    \"resumen\": \"Comienza la aventura de Seiya\",\r\n    \"duracionMinutos\": 24,\r\n    \"imagen\": \"seiya.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/serie/0/episodios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serie",
+						"0",
+						"episodios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un episodio a una serie inexistente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroEpisodio\": 1,\r\n    \"nombre\": \"Las leyendas de una nueva era\",\r\n    \"resumen\": \"Comienza la aventura de Seiya\",\r\n    \"duracionMinutos\": 24,\r\n    \"imagen\": \"seiya.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/serie/0/episodios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serie",
+								"0",
+								"episodios"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"03-10-2023 09:03:46\",\n        \"message\": \"Serie no encontrada\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los episodios de una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of episodios > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serie",
+						"{{serie_id}}",
+						"episodios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los episodios de una serie",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serie",
+								"{{serie_id}}",
+								"episodios"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"numeroEpisodio\": 1,\n        \"nombre\": \"Las leyendas de una nueva era\",\n        \"resumen\": \"Comienza la aventura de Seiya\",\n        \"duracionMinutos\": 24,\n        \"imagen\": \"seiya.png\",\n        \"serie\": {\n            \"id\": 1,\n            \"nombre\": \"Saint Seiya\",\n            \"imagen\": \"saintSeiya.png\",\n            \"sinopsis\": \"Los caballeros de Athena luchan contra el mal.\"\n        }\n    },\n    {\n        \"id\": 2,\n        \"numeroEpisodio\": 2,\n        \"nombre\": \"Cuando Seiya viste la armadura de Pegaso\",\n        \"resumen\": \"Seiya pelea\",\n        \"duracionMinutos\": 24,\n        \"imagen\": \"pegaso.png\",\n        \"serie\": {\n            \"id\": 1,\n            \"nombre\": \"Saint Seiya\",\n            \"imagen\": \"saintSeiya.png\",\n            \"sinopsis\": \"Los caballeros de Athena luchan contra el mal.\"\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener un episodios de una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios/{{episodio_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serie",
+						"{{serie_id}}",
+						"episodios",
+						"{{episodio_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un plan de una plataforma",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios/{{episodio_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serie",
+								"{{serie_id}}",
+								"episodios",
+								"{{episodio_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"numeroEpisodio\": 1,\n    \"nombre\": \"Las leyendas de una nueva era\",\n    \"resumen\": \"Comienza la aventura de Seiya\",\n    \"duracionMinutos\": 24,\n    \"imagen\": \"seiya.png\",\n    \"serie\": {\n        \"id\": 1,\n        \"nombre\": \"Saint Seiya\",\n        \"imagen\": \"saintSeiya.png\",\n        \"sinopsis\": \"Los caballeros de Athena luchan contra el mal.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los episodios de una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of Episodios > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serie",
+						"{{serie_id}}",
+						"episodios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los episodios de una serie",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/serie/{{episodio_id}}/episodios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serie",
+								"{{episodio_id}}",
+								"episodios"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"numeroEpisodio\": 1,\n        \"nombre\": \"Las leyendas de una nueva era\",\n        \"resumen\": \"Comienza la aventura de Seiya\",\n        \"duracionMinutos\": 24,\n        \"imagen\": \"seiya.png\",\n        \"serie\": {\n            \"id\": 1,\n            \"nombre\": \"Saint Seiya\",\n            \"imagen\": \"saintSeiya.png\",\n            \"sinopsis\": \"Los caballeros de Athena luchan contra el mal.\"\n        }\n    },\n    {\n        \"id\": 2,\n        \"numeroEpisodio\": 2,\n        \"nombre\": \"Cuando Seiya viste la armadura de Pegaso\",\n        \"resumen\": \"Seiya pelea\",\n        \"duracionMinutos\": 24,\n        \"imagen\": \"pegaso.png\",\n        \"serie\": {\n            \"id\": 1,\n            \"nombre\": \"Saint Seiya\",\n            \"imagen\": \"saintSeiya.png\",\n            \"sinopsis\": \"Los caballeros de Athena luchan contra el mal.\"\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener episodio inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Episodio no encontrado\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serie",
+						"{{serie_id}}",
+						"episodios",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener episodio inexistente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serie",
+								"{{serie_id}}",
+								"episodios",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"03-10-2023 09:03:58\",\r\n        \"message\": \"Episodio no encontrado\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un episodio de una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numeroEpisodio\": 1,\r\n    \"nombre\": \"Las leyendas de una nueva era\",\r\n    \"resumen\": \"Comienza la aventura de Seiya\",\r\n    \"duracionMinutos\": 24,\r\n    \"imagen\": \"https://elcomercio.pe/resizer/esV-T44wrFsyO_ZaZdvGjpbx44s=/1200x900/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/SVSZUIF3BFGWDNDYGQJXICPH5E.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios/{{episodio_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serie",
+						"{{serie_id}}",
+						"episodios",
+						"{{episodio_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar un episodio",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroEpisodio\": 1,\r\n    \"nombre\": \"Las leyendas de una nueva era\",\r\n    \"resumen\": \"Comienza la aventura de Seiya\",\r\n    \"duracionMinutos\": 24,\r\n    \"imagen\": \"https://elcomercio.pe/resizer/esV-T44wrFsyO_ZaZdvGjpbx44s=/1200x900/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/SVSZUIF3BFGWDNDYGQJXICPH5E.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios/{{episodio_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serie",
+								"{{serie_id}}",
+								"episodios",
+								"{{episodio_id_1}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"numeroEpisodio\": 1,\n    \"nombre\": \"Las leyendas de una nueva era\",\n    \"resumen\": \"Comienza la aventura de Seiya\",\n    \"duracionMinutos\": 24,\n    \"imagen\": \"https://elcomercio.pe/resizer/esV-T44wrFsyO_ZaZdvGjpbx44s=/1200x900/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/SVSZUIF3BFGWDNDYGQJXICPH5E.jpg\",\n    \"serie\": {\n        \"id\": 1,\n        \"nombre\": \"Saint Seiya\",\n        \"imagen\": \"saintSeiya.png\",\n        \"sinopsis\": \"Los caballeros de Athena luchan contra el mal.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un episodio de una serie que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Serie no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numeroEpisodio\": 1,\r\n    \"nombre\": \"Las leyendas de una nueva era\",\r\n    \"resumen\": \"Comienza la aventura de Seiya\",\r\n    \"duracionMinutos\": 24,\r\n    \"imagen\": \"https://elcomercio.pe/resizer/esV-T44wrFsyO_ZaZdvGjpbx44s=/1200x900/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/SVSZUIF3BFGWDNDYGQJXICPH5E.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/serie/0/episodios/{{episodio_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serie",
+						"0",
+						"episodios",
+						"{{episodio_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar un episodio de una serie que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroEpisodio\": 1,\r\n    \"nombre\": \"Las leyendas de una nueva era\",\r\n    \"resumen\": \"Comienza la aventura de Seiya\",\r\n    \"duracionMinutos\": 24,\r\n    \"imagen\": \"https://elcomercio.pe/resizer/esV-T44wrFsyO_ZaZdvGjpbx44s=/1200x900/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/SVSZUIF3BFGWDNDYGQJXICPH5E.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/serie/0/episodios/{{episodio_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serie",
+								"0",
+								"episodios",
+								"{{episodio_id_1}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"03-10-2023 09:04:07\",\r\n        \"message\": \"Serie no encontrada\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un episodio que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Episodio no encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numeroEpisodio\": 1,\r\n    \"nombre\": \"Las leyendas de una nueva era\",\r\n    \"resumen\": \"Comienza la aventura de Seiya\",\r\n    \"duracionMinutos\": 24,\r\n    \"imagen\": \"https://elcomercio.pe/resizer/esV-T44wrFsyO_ZaZdvGjpbx44s=/1200x900/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/SVSZUIF3BFGWDNDYGQJXICPH5E.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serie",
+						"{{serie_id}}",
+						"episodios",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar un episodio que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroEpisodio\": 1,\r\n    \"nombre\": \"Las leyendas de una nueva era\",\r\n    \"resumen\": \"Comienza la aventura de Seiya\",\r\n    \"duracionMinutos\": 24,\r\n    \"imagen\": \"https://elcomercio.pe/resizer/esV-T44wrFsyO_ZaZdvGjpbx44s=/1200x900/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/SVSZUIF3BFGWDNDYGQJXICPH5E.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serie",
+								"{{serie_id}}",
+								"episodios",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"03-10-2023 09:04:09\",\n        \"message\": \"Episodio no encontrado\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar un episodio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios/{{episodio_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serie",
+						"{{serie_id}}",
+						"episodios",
+						"{{episodio_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un episodio",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios/{{episodio_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serie",
+								"{{serie_id}}",
+								"episodios",
+								"{{episodio_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar un episodio de una serie que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Serie no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/serie/0/episodios/{{episodio_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serie",
+						"0",
+						"episodios",
+						"{{episodio_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un episodio de una serie que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/serie/-5/episodio/{{episodio_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serie",
+								"-5",
+								"episodio",
+								"{{episodio_id_1}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"03-10-2023 09:04:47\",\r\n        \"message\": \"Serie no encontrada\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar un episodio que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Episodio no encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/serie/{{serie_id}}/episodios/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serie",
+						"{{serie_id}}",
+						"episodios",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un episodio que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/series/{{serie_id}}/episodios/-1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series",
+								"{{serie_id}}",
+								"episodios",
+								"-1"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"03-10-2023 09:04:49\",\n        \"message\": \"Episodio no encontrado\"\n    }\n}"
+				}
+			]
+		}
+	]
+}

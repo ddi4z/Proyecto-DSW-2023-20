@@ -1,0 +1,1021 @@
+{
+	"info": {
+		"_postman_id": "d9757c14-46db-4546-9741-1c72e27a7a0c",
+		"name": "SeriePlataforma",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29104017"
+	},
+	"item": [
+		{
+			"name": "Crear una serie Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"serie_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una serie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"Peaky Blinders\",\n    \"imagen\": \"PeakyBlinders.png\",\n    \"wallpaper\": \"PeakyBlinders.png\",\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\n    \"anio\": 2013\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear una plataforma Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"plataforma_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Cuevanaq\",\r\n    \"sitioWeb\": \"https://cuevanaq.pro/\",\r\n    \"logo\": \"https://cuevana.pro/cuevanaq3.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una plataforma",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Cuevana\",\r\n    \"sitioWeb\": \"https://cuevana.pro/\",\r\n    \"logo\": \"https://cuevana.pro/cuevana3.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataformas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Crear una plataforma Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"plataforma_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Cuevanaq\",\r\n    \"sitioWeb\": \"https://cuevanaq.pro/\",\r\n    \"logo\": \"https://cuevana.pro/cuevanaq3.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una plataforma",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Cuevana\",\r\n    \"sitioWeb\": \"https://cuevana.pro/\",\r\n    \"logo\": \"https://cuevana.pro/cuevana3.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataformas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Agregar una plataforma a una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/{{serie_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series",
+						"{{serie_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar una serie a una plataforma",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\":\"Dragon Ball\",\r\n    \"imagen\":\"dragon_ball.jpg\",\r\n    \"sinopsis\":\"Esferas del dragon.\",\r\n    \"categorias\":[\r\n        {\r\n            \"nombre\":\"Accion\"\r\n        },\r\n        {\r\n            \"nombre\":\"Aventura\"\r\n        }\r\n    ],\r\n    \"directores\": [\r\n        {\r\n            \"nombre\":\"Akira Toriyama\",\r\n            \"foto\":\"akira_toriyama.jpg\",\r\n            \"descripcion\":\"El creador de Goku\"\r\n        }\r\n    ],\r\n    \"actores\":[\r\n        {\r\n            \"nombre\":\"Goku\",\r\n            \"foto\":\"goku.jpg\",\r\n            \"descripcion\":\"goku es goku\"\r\n        }\r\n    ],\r\n    \"plataformas\":[\r\n        {\r\n            \"nombre\": \"Cuevana\",\r\n            \"sitioWeb\": \"https://cuevana.pro/\",\r\n            \"logo\": \"https://cuevana.pro/cuevana3.png\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/{{serie_id_1}}. ",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series",
+								"{{serie_id_1}}. "
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Agregar una plataforma que no existe a una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Serie no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar una serie que no existe a una plataforma",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Obtener una plataforma de una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/{{serie_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series",
+						"{{serie_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una serie de una plataforma",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/{{serie_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series",
+								"{{serie_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Obtener una plataforma que no existe de una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"The book with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una serie que no existe de una pltaforma",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Obtener una plataforma que no está asociada a una serie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/{{serie_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series",
+						"{{serie_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una serie que no esta asociada a una plataforma",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/{{serie_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series",
+								"{{serie_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Obtener las plataformas de una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of plataformas > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener las series de una plataforma",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Asociar plataformas a una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"nombre\":\"Dragon Ball\",\r\n        \"imagen\":\"dragon_ball.jpg\",\r\n        \"sinopsis\":\"Esferas del dragon.\",\r\n        \"categorias\":[\r\n            {\r\n                \"nombre\":\"Accion\"\r\n            },\r\n            {\r\n                \"nombre\":\"Aventura\"\r\n            }\r\n        ],\r\n        \"directores\": [\r\n            {\r\n                \"nombre\":\"Akira Toriyama\",\r\n                \"foto\":\"akira_toriyama.jpg\",\r\n                \"descripcion\":\"El creador de Goku\"\r\n            }\r\n        ],\r\n        \"actores\":[\r\n            {\r\n                \"nombre\":\"Goku\",\r\n                \"foto\":\"goku.jpg\",\r\n                \"descripcion\":\"goku es goku\"\r\n            }\r\n        ],\r\n        \"plataformas\":[\r\n            {\r\n                \"nombre\": \"Cuevana\",\r\n                \"sitioWeb\": \"https://cuevana.pro/\",\r\n                \"logo\": \"https://cuevana.pro/cuevana3.png\"\r\n            }\r\n        ]\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series ",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series "
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar series a una plataforma",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"nombre\":\"Dragon Ball\",\r\n        \"imagen\":\"dragon_ball.jpg\",\r\n        \"sinopsis\":\"Esferas del dragon.\",\r\n        \"categorias\":[\r\n            {\r\n                \"nombre\":\"Accion\"\r\n            },\r\n            {\r\n                \"nombre\":\"Aventura\"\r\n            }\r\n        ],\r\n        \"directores\": [\r\n            {\r\n                \"nombre\":\"Akira Toriyama\",\r\n                \"foto\":\"akira_toriyama.jpg\",\r\n                \"descripcion\":\"El creador de Goku\"\r\n            }\r\n        ],\r\n        \"actores\":[\r\n            {\r\n                \"nombre\":\"Goku\",\r\n                \"foto\":\"goku.jpg\",\r\n                \"descripcion\":\"goku es goku\"\r\n            }\r\n        ],\r\n        \"plataformas\":[\r\n            {\r\n                \"nombre\": \"Cuevana\",\r\n                \"sitioWeb\": \"https://cuevana.pro/\",\r\n                \"logo\": \"https://cuevana.pro/cuevana3.png\"\r\n            }\r\n        ]\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series ",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series "
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Asociar plataformas que no existen a una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"The book with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n    \"id\": 0,\r\n    \"nombre\":\"Dragon Ball1\",\r\n    \"imagen\":\"dragon_ball1.jpg\",\r\n    \"sinopsis\":\"Esferas del dragon1.\",\r\n    \"categorias\":[\r\n        {\r\n            \"nombre\":\"Accion\"\r\n        },\r\n        {\r\n            \"nombre\":\"Aventura\"\r\n        }\r\n    ],\r\n    \"directores\": [\r\n        {\r\n            \"nombre\":\"Akira Toriyama\",\r\n            \"foto\":\"akira_toriyama.jpg\",\r\n            \"descripcion\":\"El creador de Goku\"\r\n        }\r\n    ],\r\n    \"actores\":[\r\n        {\r\n            \"nombre\":\"Goku\",\r\n            \"foto\":\"goku.jpg\",\r\n            \"descripcion\":\"goku es goku\"\r\n        }\r\n    ],\r\n    \"plataformas\":[\r\n        {\r\n            \"nombre\": \"Cuevana\",\r\n            \"sitioWeb\": \"https://cuevana.pro/\",\r\n            \"logo\": \"https://cuevana.pro/cuevana3.png\"\r\n        }\r\n    ]\r\n}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar series que no existen a una plataforma",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:25:21\",\r\n        \"message\": \"La serie con el id dado no fue encontrada\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar una plataforma de una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/{{serie_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series",
+						"{{serie_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una serie de una plataforma",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series{{serie_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series{{serie_id_2}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar una plataforma de una serie que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"The book with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/0/series/{{serie_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"0",
+						"series",
+						"{{serie_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una serie de una plataforma que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/0/series/{{serie_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"0",
+								"series",
+								"{{serie_id_2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar una plataforma que no existe de una serie",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una serie que no existe de una plataforma",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	]
+}

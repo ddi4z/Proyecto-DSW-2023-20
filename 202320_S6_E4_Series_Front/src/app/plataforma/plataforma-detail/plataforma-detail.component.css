@@ -1,0 +1,133 @@
+.container-fluid {
+    margin-top: 90px;
+    margin-bottom: 50px;
+}
+
+.poster {
+    border: 10px solid #4E4FEB;
+}
+
+.info-serie p {
+    color: white;
+    font-size: large;
+}
+
+strong {
+    color: #d2d2ff;
+}
+
+.info-serie h1 {
+    color: #4E4FEB;
+    font-size: 40px;
+}
+
+.info-serie a {
+    color: #4E4FEB;
+}
+
+.info-serie h2 {
+    color: #4E4FEB;
+    font-size: 50px;
+}
+
+.episodio .card {
+    background-color: #4E4FEB;
+    border: 10px solid #4E4FEB;
+    color: white;
+    margin-top: 50px;
+    padding: 1rem;
+    width: 100%;
+    height: 18rem;
+}
+
+.episodio .card img {
+    width: 100%;
+    height: 5rem;
+    object-fit: cover;
+    margin-top: 1rem;
+}
+
+.card-title {
+    font-size: 20px;
+    text-align: center;
+}
+
+.episodios {
+    margin: 50px auto;
+}
+
+.episodios h2 {
+    color: white;
+    text-align: center;
+}
+
+
+.full-size-img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.btn-azul-oscuro {
+    background-color: #4E4FEB;
+    color: white;
+    border: 0px solid #4E4FEB;
+    margin: 5px;
+}
+
+
+.dropdown-oscuro {
+    background-color: #4E4FEB;
+}
+
+.dropdown-oscuro li a {
+    color: white;
+    background-color: #4E4FEB;
+}
+
+.dropdown-oscuro li a:hover {
+    background-color: #4040be;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: #4E4FEB;
+}
+
+input {
+    background-color: #000000;
+    color: #4E4FEB;
+    border: 3px solid #4E4FEB;
+}
+
+input::placeholder {
+    color: #4E4FEB;
+}
+
+input:focus {
+    background-color: #000000;
+    color: #4E4FEB;
+    border: 3px solid #4E4FEB;
+}
+
+.btn-azul-oscuro:hover {
+    background-color: #4040be;
+    cursor: pointer;
+  }
+
+ .titulo {
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .opciones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+  }

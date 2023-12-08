@@ -1,0 +1,1070 @@
+{
+	"info": {
+		"_postman_id": "31982a9e-98bc-4a2b-9099-8a4515e2c8f1",
+		"name": "CategoriaSeries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29108472"
+	},
+	"item": [
+		{
+			"name": "Crear una categoría Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"categoria_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Humor\",\r\n    \"imagen\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fzelda.fandom.com%2Fes%2Fwiki%2FLink&psig=AOvVaw20mIeRfS8x7nK-fIylTNjB&ust=1701125753175000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCIDb87Ph4oIDFQAAAAAdAAAAABA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una categoría",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/categorias",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Humor\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear una serie Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"serie_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una serie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"Peaky Blinders\",\n    \"imagen\": \"PeakyBlinders.png\",\n    \"wallpaper\": \"PeakyBlinders.png\",\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\n    \"anio\": 2013\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar una serie a una categoría",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id_1}}/series/{{serie_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id_1}}",
+						"series",
+						"{{serie_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar una serie a una categoría",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/series/{{serie_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"series",
+								"{{serie_id_1}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"name\": \"La casa de papel\",\r\n    \"image\": \"https://static.iris.net.co/arcadia/upload/images/2017/7/31/64899_1.jpg\",\r\n    \"sinopsis\": \"Jorge Fondebrider traza un mundo fantÃ¡stico con mapas de la geografÃ­a real y de sus mitologÃ­as, observando a los hombres lobo que han vivido en la imaginaciÃ³n de Europa y AmÃ©rica.\",\r\n\r\n    \"categorias\": [\r\n        {\r\n            \"id\": 2,\r\n            \"name\": \"Humor\",\r\n        }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar una serie que no existe a una categoría",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Categoria no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id_1}}/series/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id_1}}",
+						"series",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar una serie que no existe a una categoría",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/series/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"series",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:15:29\",\r\n        \"message\": \"The serie with the given id was not found\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una serie de una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id_1}}/series/{{serie_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id_1}}",
+						"series",
+						"{{serie_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una serie de una categoria",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/series/{{categoria_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"series",
+								"{{categoria_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"name\": \"La casa de papel\",\r\n    \"image\": \"https://static.iris.net.co/arcadia/upload/images/2017/7/31/64899_1.jpg\",\r\n    \"sinopsis\": \"Jorge Fondebrider traza un mundo fantÃ¡stico con mapas de la geografÃ­a real y de sus mitologÃ­as, observando a los hombres lobo que han vivido en la imaginaciÃ³n de Europa y AmÃ©rica.\",\r\n    \r\n    \"categorias\": [\r\n        {\r\n            \"id\": 2,\r\n            \"name\": \"Humor\",\r\n        }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una serie que no existe de una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Serie no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id_1}}/series/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id_1}}",
+						"series",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una serie de una categoria que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/series/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"series",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:17:39\",\r\n        \"message\": \"The serie with the given id was not found\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear una serie Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"serie_id_2\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Peaky Blinders2\",\r\n    \"imagen\": \"PeakyBlinders2.png\",\r\n    \"wallpaper\": \"PeakyBlinders2.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2010\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una serie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"Peaky Blinders\",\n    \"imagen\": \"PeakyBlinders.png\",\n    \"wallpaper\": \"PeakyBlinders.png\",\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\n    \"anio\": 2013\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una serie que no está asociada a una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"The serie is not associated to the categoria\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id_1}}/series/{{serie_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id_1}}",
+						"series",
+						"{{serie_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una serie que no está asociada a una categoria",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/series/{{serie_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"series",
+								"{{serie_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"PRECONDITION_FAILED\",\r\n        \"timestamp\": \"21-02-2023 10:19:03\",\r\n        \"message\": \"The serie is not associated to the categoria\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener las series de una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Número de series > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id_1}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id_1}}",
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener las series de una categoria",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"series"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"name\": \"La casa de papel\",\r\n    \"image\": \"https://static.iris.net.co/arcadia/upload/images/2017/7/31/64899_1.jpg\",\r\n    \"sinopsis\": \"Jorge Fondebrider traza un mundo fantÃ¡stico con mapas de la geografÃ­a real y de sus mitologÃ­as, observando a los hombres lobo que han vivido en la imaginaciÃ³n de Europa y AmÃ©rica.\",\r\n\r\n    \"categorias\": [\r\n        {\r\n            \"id\": 2,\r\n            \"name\": \"Humor\",\r\n        }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear una serie Copy 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"serie_id_3\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una serie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"Peaky Blinders\",\n    \"imagen\": \"PeakyBlinders.png\",\n    \"wallpaper\": \"PeakyBlinders.png\",\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\n    \"anio\": 2013\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear una serie Copy 4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"serie_id_4\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una serie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"Peaky Blinders\",\n    \"imagen\": \"PeakyBlinders.png\",\n    \"wallpaper\": \"PeakyBlinders.png\",\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\n    \"anio\": 2013\n}"
+				}
+			]
+		},
+		{
+			"name": "Asociar series a una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n{\r\n    \"id\": {{serie_id_3}},\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n},\r\n{\r\n    \"id\": {{serie_id_4}},\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id_1}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id_1}}",
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar series a una categoria",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n{\r\n    \"id\": {{categoria_id_3}},\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n},\r\n{\r\n    \"id\": {{categoria_id_4}},\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id_1}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id_1}}",
+								"series"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Asociar series que no existen a una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Serie no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n    \"id\": 0,\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id_1}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id_1}}",
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar series que no existen a una categoria",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"description\": \"Jorge Fondebrider traza un mundo fantastico con mapas de la geografia real y de sus mitologias, observando a los hombres lobo que han vivido en la imaginacion de Europa y America.\",\r\n        \"id\": 0,\r\n        \"image\": \"https://static.iris.net.co/arcadia/upload/images/2017/7/31/64899_1.jpg\",\r\n        \"name\": \"Historia de los hombres lobo 2\",\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"series"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:25:21\",\r\n        \"message\": \"The serie with the given id was not found\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar una serie de una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id_1}}/series/{{serie_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id_1}}",
+						"series",
+						"{{serie_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una serie de una categoria",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/series{{serie_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"series{{serie_id_2}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar una serie a una categoria que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Categoria no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/0/series/{{serie_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"0",
+						"series",
+						"{{serie_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una serie a una categoria que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/0/series/{{serie_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"0",
+								"series",
+								"{{serie_id_2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:25:21\",\r\n        \"message\": \"The categoria with the given id was not found\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar una serie que no existe de una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Serie no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id_1}}/series/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id_1}}",
+						"series",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una serie que no existe de una categoria",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/series/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"series",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:25:21\",\r\n        \"message\": \"The serie with the given id was not found\"\r\n    }\r\n}"
+				}
+			]
+		}
+	]
+}

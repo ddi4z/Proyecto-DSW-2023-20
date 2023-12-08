@@ -1,0 +1,595 @@
+{
+	"info": {
+		"_postman_id": "3d0d4c21-c368-4a20-aa99-c9e17ffdd79d",
+		"name": "Plataforma",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29104017"
+	},
+	"item": [
+		{
+			"name": "Crear una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"plataforma_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Cuevanaq\",\r\n    \"sitioWeb\": \"https://cuevanaq.pro/\",\r\n    \"logo\": \"https://cuevana.pro/cuevanaq3.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una plataforma",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Cuevana\",\r\n    \"sitioWeb\": \"https://cuevana.pro/\",\r\n    \"logo\": \"https://cuevana.pro/cuevana3.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataformas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Obtener todas las plataformas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of plataformas > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todas las plataformas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Obtener una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una plataforma",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Cuevanaq\",\r\n    \"sitioWeb\": \"https://cuevanaq.pro/\",\r\n    \"logo\": \"https://cuevana.pro/cuevanaq3.png\"\r\n    \"seriesPlataforma\": [],\r\n    \"planes\": []\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una plataforma que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Plataforma no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una plataforma que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Editar una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Cuevana3q\",\r\n    \"sitioWeb\": \"https://cuevqana.pro/cuevana3.png\",\r\n    \"logo\": \"https://cuevana.proq/cuevana3.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Editar una plataforma",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Editar una plataforma que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Plataforma no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"C\",\r\n    \"sitioWeb\": \"https://cuevana.pro/cuevana3.png\",\r\n    \"logo\": \"https://cuevana.pro/cuevana3.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Editar una plataforma que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"13-09-2023 10:04:10\",\r\n        \"message\": \"Lap lataforma con el id dado no fue encontrada\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:04:10\",\r\n        \"message\": \"La plataforma con el id dado no fue encontrada\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una plataforma",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar una plataforma que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Plataforma no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una plataforma que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"09-13-2023 10:05:19\",\r\n        \"message\": \"La plataforma con el id dado no fue encontrada\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"    "
+				]
+			}
+		}
+	]
+}

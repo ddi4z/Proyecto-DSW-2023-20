@@ -1,0 +1,158 @@
+<div class="row">
+  <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active carrousel-background"
+        style="background-image:linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)), url('{{serieCarrousel1?.wallpaper}}');"
+        data-bs-interval="4000">
+        <div class="info-carrousel">
+          <h2 class="h2-carrousel">{{serieCarrousel1?.nombre}}</h2>
+          <p class="p-carrousel">{{acortarSinopsisCarrousel(serieCarrousel1?.sinopsis)}}</p>
+          <button type="button" class="btn btn-serie" routerLink="/series/{{ serieCarrousel1?.id }}">
+            <a>Ver más</a>
+          </button>
+        </div>
+
+      </div>
+      <div class="carousel-item carrousel-background"
+        style="background-image:linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)), url('{{serieCarrousel2?.wallpaper}}');"
+        data-bs-interval="4000">
+        <div class="info-carrousel">
+          <h2 class="h2-carrousel">{{serieCarrousel2?.nombre}}</h2>
+          <p class="p-carrousel">{{acortarSinopsisCarrousel(serieCarrousel2?.sinopsis)}}</p>
+          <button type="button" class="btn btn-serie" routerLink="/series/{{ serieCarrousel2?.id }}">
+            <a>Ver más</a>
+          </button>
+        </div>
+
+      </div>
+      <div class="carousel-item carrousel-background"
+        style="background-image:linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)), url('{{serieCarrousel3?.wallpaper}}');"
+        data-bs-interval="4000">
+        <div class="info-carrousel">
+          <h2 class="h2-carrousel">{{serieCarrousel3?.nombre}}</h2>
+          <p class="p-carrousel">{{acortarSinopsisCarrousel(serieCarrousel3?.sinopsis)}}</p>
+          <button type="button" class="btn btn-serie" routerLink="/series/{{ serieCarrousel3?.id }}">
+            <a>Ver más</a>
+          </button>
+        </div>
+
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <h2 class="col-12 title">Todas las series</h2>
+</div>
+
+
+
+
+
+
+<div class="row opciones">
+
+
+  <div class="col-lg-5 col-lg-5 col-md-6 col-12 d-flex align-items-center justify-content-center">
+    <div class="btn-group ">
+      <div class="dropdown">
+        <button class="btn btn-azul-oscuro dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Ordenar
+        </button>
+        <ul class="dropdown-menu dropdown-oscuro">
+          <li>
+            <a class="dropdown-item" (click)="getSeries()">Ninguno</a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="getSeriesAlfabeticamente()">A-Z</a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="getSeriesAntiAlfabeticamente()">Z-A</a>
+          </li>
+        </ul>
+      </div>
+
+
+
+      <div class="dropdown">
+        <button class="btn btn-azul-oscuro dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Plataformas
+        </button>
+        <ul class="dropdown-menu dropdown-oscuro">
+          <li>
+            <a class="dropdown-item" (click)="onChangePlataforma('')">Cualquiera</a>
+          </li>
+          <li *ngFor="let plataforma of plataformas">
+            <a class="dropdown-item" (click)="onChangePlataforma(plataforma.nombre)">{{ plataforma.nombre }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="dropdown">
+        <button class="btn btn-azul-oscuro dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Décadas
+        </button>
+        <ul class="dropdown-menu dropdown-oscuro">
+          <li><a class="dropdown-item" (click)="onChangeAnio(0,3000)">Cualquiera</a></li>
+          <li><a class="dropdown-item" (click)="onChangeAnio(1980,1989)">1980-1989</a></li>
+          <li><a class="dropdown-item" (click)="onChangeAnio(1990,1999)">1990-2009</a></li>
+          <li><a class="dropdown-item" (click)="onChangeAnio(2000,2009)">2000-2009</a></li>
+          <li><a class="dropdown-item" (click)="onChangeAnio(2010,2019)">2010-2019</a></li>
+          <li><a class="dropdown-item" (click)="onChangeAnio(2020,2029)">2010-2019</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-7 col-md-6 col-12 d-flex align-items-center justify-content-center">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchedSerie" autocomplete="off"
+    (ngModelChange)="onSearchChangeSerie()" placeholder="Buscar una serie" />
+    <img src="../assets/lupa.png" alt="Lupa" width="35" height="35" />
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3"
+    *ngFor="let serie of series | filter : searchedSerie| filterByPlataforma : searchedPlataforma  | filterByAnio: anioMenor: anioSuperior | paginate : { itemsPerPage: itemsPerPage, currentPage: p, id: 'series-pagination' } ; let i = index">
+    <div [routerLink]="['/series', serie.id]" class="card p-2"
+      [ngClass]="{'card-oscura': i % 2 === 0, 'card-clara': i % 2 !== 0}" (mouseenter)="onMouseEnter(serie)"
+      (mouseleave)="onMouseLeave()"
+      [style.background-image]="serie === selectedSerie ? 'url(' + serie.imagen + ')' : ''"
+      style="background-size: cover;">
+      <div *ngIf="serie !== selectedSerie">
+        <img class="card-img-top" src="{{ serie.imagen }}" alt="{{ serie.nombre }}" />
+        <h5 class="card-title">{{serie.nombre}}</h5>
+      </div>
+
+      <div class="fondo-flip" *ngIf="serie === selectedSerie">
+        <div class="card-body card-flip">
+
+          <h5 class="card-title ">{{serie.nombre}}</h5>
+          <p class="card-flip-sinopsis">{{acortarSinopsis(serie.sinopsis)}}</p>
+          <p class="card-flip-categorias">{{categoriasAString(serie.categorias)}}</p>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 col-12 d-flex justify-content-center align-items-center">
+    <pagination-controls (pageChange)="p = $event" id="series-pagination"
+    previousLabel="Anterior"
+    nextLabel="Siguiente"
+    ></pagination-controls>
+</div>
+</div>

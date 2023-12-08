@@ -1,0 +1,54 @@
+<div class="container-fluid" *ngIf="actorDetail">
+  <div class="row">
+    <div class="col-3">
+      <div class="poster">
+        <img class="img-fluid full-size-img" src="{{ actorDetail.foto }}" alt="{{ actorDetail.nombre }}" />
+      </div>
+    </div>
+    <div class="col info-serie">
+      <h1>{{ actorDetail.nombre }}</h1>
+      <p>{{ actorDetail.descripcion }}</p>
+    </div>
+
+    <div class="row episodios" *ngIf="
+        actorDetail.seriesDirigidas && actorDetail.seriesDirigidas.length > 0;
+        else noSeries
+      ">
+      <div class="col-12">
+        <h2>Series Dirigidas</h2>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-3 episodio" *ngFor="let dirigida of actorDetail.seriesDirigidas">
+            <div class="card">
+              <a [routerLink]="['/series', dirigida.id]">
+                <img class="card-img-top" src="{{ dirigida.imagen }}" alt="{{ dirigida.nombre }}" />
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">{{ dirigida.nombre }}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noSeries> </ng-template>
+
+    <div class="row episodios">
+      <div class="col-12">
+        <h2>Series Actuadas</h2>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-3 episodio" *ngFor="let actuada of actorDetail.seriesActuadas">
+            <div class="card">
+              <a [routerLink]="['/series', actuada.id]">
+                <img class="card-img-top" src="{{ actuada.imagen }}" alt="{{ actuada.nombre }}" />
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">{{ actuada.nombre }}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

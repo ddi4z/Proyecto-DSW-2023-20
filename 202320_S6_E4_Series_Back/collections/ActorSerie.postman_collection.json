@@ -1,0 +1,956 @@
+{
+	"info": {
+		"_postman_id": "ecc6868f-ec7a-4302-a13b-4594ac6ce95c",
+		"name": "ActorSerie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29109745"
+	},
+	"item": [
+		{
+			"name": "Crear una serie Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"serie_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una serie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"Peaky Blinders\",\n    \"imagen\": \"PeakyBlinders.png\",\n    \"wallpaper\": \"PeakyBlinders.png\",\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\n    \"anio\": 2013\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear Participante Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"participante_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Juan Diego Gomez\",\r\n    \"foto\": \"https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez.jpg\",\r\n    \"descripcion\": \"este es un participante\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/participantes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"participantes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear Participante",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Juan Diego Gomez\",\r\n    \"foto\": \"https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez.jpg\",\r\n    \"descripcion\": \"este es un participante\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/participantes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"participantes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Agregar serie a actor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/actores/{{participante_id_1}}/series/{{serie_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"actores",
+						"{{participante_id_1}}",
+						"series",
+						"{{serie_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar serie a actor",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Arcane\",\r\n    \"imagen\": \"arcane.png\",\r\n    \"sinopsis\": \"sinopsis de arcane\",\r\n    \"directores\": [],\r\n    \"actores\":[{   \r\n            \"id\": 2,\r\n            \"nombre\": \"Gabriel José de la Concordia García Márquez\",\r\n            \"foto\": \"https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez.jpg\",\r\n            \"descripcion\": \"fue un escritor, guionista, editor y periodista colombiano. En 1982 recibió el Premio Nobel de Literatura.\"\r\n        }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/actor/{{actor_id}}/series/{{series_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actor",
+								"{{actor_id}}",
+								"series",
+								"{{series_id_1}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Agregar serie que no existe a un actor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Participante no encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/actores/{{participante_id_1}}/series/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"actores",
+						"{{participante_id_1}}",
+						"series",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar serie a un actor que no existe",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:15:29\",\r\n        \"message\": \"No se encontro una serie asociada al id dado\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/directores/{{director_id}}/series/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"directores",
+								"{{director_id}}",
+								"series",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Obtener una serie de un actor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/actores/{{participante_id_1}}/series/{{serie_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"actores",
+						"{{participante_id_1}}",
+						"series",
+						"{{serie_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una serie de un actor",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Arcane\",\r\n    \"imagen\": \"arcane.png\",\r\n    \"sinopsis\": \"sinopsis de arcane\",\r\n    \"directores\": [],\r\n    \"actores\":[{\r\n            \"id\": 2,\r\n            \"nombre\": \"Gabriel José de la Concordia García Márquez\",\r\n            \"foto\": \"https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez.jpg\",\r\n            \"descripcion\": \"fue un escritor, guionista, editor y periodista colombiano. En 1982 recibió el Premio Nobel de Literatura.\"\r\n        }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/actores/{{actor_id}}/series/{{serie_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actores",
+								"{{actor_id}}",
+								"series",
+								"{{serie_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Obtener serie que no existe de un actor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Serie no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/actores/{{participante_id_1}}/series/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"actores",
+						"{{participante_id_1}}",
+						"series",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener serie que no existe de un actor",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:17:39\",\r\n        \"message\": \"No se encontro la serie con el id dado\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/actores/{{actor_id}}/series/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actores",
+								"{{actor_id}}",
+								"series",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Obtener una serie que no esta asociada a un actor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"La serie no esta asociada con el actor\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/actores/{{participante_id_1}}/series/2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"actores",
+						"{{participante_id_1}}",
+						"series",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una serie que no esta asociada a un actor",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"apierror\": {\r\n        \"status\": \"PRECONDITION_FAILED\",\r\n        \"timestamp\": \"21-02-2023 10:19:03\",\r\n        \"message\": \"La serie no esta asociada al director\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/actores/{{actor_id}}/series/{{serie_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actores",
+								"{{actor_id}}",
+								"series",
+								"{{serie_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Obtener series de un actor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Numbero de series > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/actores/{{participante_id_1}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"actores",
+						"{{participante_id_1}}",
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener series de un actor",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n    \"id\": 1,\r\n    \"nombre\": \"Arcane\",\r\n    \"imagen\": \"arcane.png\",\r\n    \"sinopsis\": \"sinopsis de arcane\",\r\n    \"directores\": [],\r\n    \"actores\":[\r\n        {   \r\n            \"id\": 2,\r\n            \"nombre\": \"Gabriel José de la Concordia García Márquez\",\r\n            \"foto\": \"https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez.jpg\",\r\n            \"descripcion\": \"fue un escritor, guionista, editor y periodista colombiano. En 1982 recibió el Premio Nobel de Literatura.\"\r\n        }]\r\n}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/actores/{{actor_id}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actores",
+								"{{actor_id}}",
+								"series"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Asociar series a un actor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": {{new_id_b}},\r\n        \"nombre\": \"Arcane\",\r\n        \"imagen\": \"arcane.png\",\r\n        \"sinopsis\": \"sinopsis de arcane\"\r\n    },\r\n    {\r\n        \"id\": {{new_id_b2}},\r\n        \"nombre\": \"Historia de los programadores\",\r\n        \"imagen\": \"programadores.png\",\r\n        \"sinopsis\": \"sinopsis de Historia de los programadores\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/actores/{{participante_id_1}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"actores",
+						"{{participante_id_1}}",
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar series a un actor",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"nombre\": \"Arcane\",\r\n        \"imagen\": \"arcane.png\",\r\n        \"sinopsis\": \"sinopsis de arcane\",\r\n        \"directores\":[],\r\n        \"actores\":[]\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"nombre\": \"Historia de los programadores\",\r\n        \"imagen\": \"programadores.png\",\r\n        \"sinopsis\": \"sinopsis de Historia de los programadores\",\r\n        \"directores\":[],\r\n        \"actores\":[]\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/actores/{{actor_id}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actores",
+								"{{actor_id}}",
+								"series"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Asociar series que no existen a actor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Serie no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n    \"id\": 0,\r\n    \"nombre\": \"Arcane\",\r\n    \"imagen\": \"arcane.png\",\r\n    \"sinopsis\": \"sinopsis de arcane\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/actores/{{participante_id_1}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"actores",
+						"{{participante_id_1}}",
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar series que no existen a director",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:25:21\",\r\n        \"message\": \"La serie asociada al id no se encontro\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/actores/{{actor_id}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actores",
+								"{{actor_id}}",
+								"series"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Borrar una serie de un actor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/actores/{{participante_id_1}}/series/2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"actores",
+						"{{participante_id_1}}",
+						"series",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una serie de un actor",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/actores/{{actor_id}}/series{{serie_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actores",
+								"{{actor_id}}",
+								"series{{serie_id_2}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Borrar serie de un actor que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Participante no encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/actores/0/series/2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"actores",
+						"0",
+						"series",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar serie de un actor que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/actores/{{actor_id}}/series{{serie_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actores",
+								"{{actor_id}}",
+								"series{{serie_id_2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Borrar serie que no existe de un actor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/actores/{{participante_id_1}}/series/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"actores",
+						"{{participante_id_1}}",
+						"series",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar serie que no existe de un director",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/actores/{{actor_id}}/series/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actores",
+								"{{actor_id}}",
+								"series",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

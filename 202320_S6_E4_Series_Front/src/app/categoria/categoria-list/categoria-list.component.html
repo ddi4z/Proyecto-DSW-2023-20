@@ -1,0 +1,10 @@
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+  <ul>
+    <li class="li-categorias" *ngFor="let categoria of categorias.slice(0, categorias.length / 2)"
+      routerLink="/categorias/{{ categoria.id }}/series/"><a class="dropdown-item">{{categoria.nombre}}</a></li>
+  </ul>
+  <ul>
+    <li class="li-categorias" *ngFor="let categoria of categorias.slice(categorias.length / 2, categorias.length)"
+      routerLink="/categorias/{{ categoria.id }}/series/"><a class="dropdown-item">{{categoria.nombre}}</a></li>
+  </ul>
+</div>

@@ -1,0 +1,154 @@
+<div class="row img-blur">
+  <div class="blur"
+    style="background-image: url('{{ serieDetail?.wallpaper }}');">
+  </div>
+  <img class="wallpaper" src="{{ serieDetail?.wallpaper }}" alt="{{ serieDetail?.nombre }}">
+</div>
+<div class="container">
+  <div class="row info-serie">
+
+    <div class="col-md-8 mb-12 ">
+      <h1>{{ serieDetail?.nombre }}</h1>
+      <p>{{ serieDetail?.sinopsis }}</p>
+      <h3><span><strong>{{ serieDetail?.anio }}</strong></span></h3>
+      <button *ngFor="let categoria of serieDetail?.categorias" type="button" class="btn btn-categoria" routerLink="/categorias/{{ categoria.id }}/series/">
+        <a>{{ categoria.nombre }}</a>
+      </button>
+    </div>
+
+    <div class="col-md-4 mb-12 episodio-detail" id="episodio-detail">
+      <img class="card-img-top" src="{{ episodioSeleccionado?.imagen }}" alt="{{ episodioSeleccionado?.nombre }}" />
+      <h2>{{ episodioSeleccionado?.nombre }}</h2>
+      <p><strong>Episodio:</strong> {{ episodioSeleccionado?.numeroEpisodio }}</p>
+      <p>{{ episodioSeleccionado?.resumen }}</p>
+      <p><strong>Duración:</strong> {{ episodioSeleccionado?.duracionMinutos }} minutos</p>
+    </div>
+
+
+  </div>
+
+  <!-- episodios -->
+
+  <div class="row episodios">
+    <div class="col-12">
+      <h2 class="mb-4">Episodios</h2>
+    </div>
+    <div class="col-lg-2 col-md-2 col-12 mb-2 d-flex ">
+      <div class="dropdown">
+        <button class="btn btn-azul-oscuro dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Ordenar
+        </button>
+        <ul class="dropdown-menu dropdown-oscuro">
+          <li>
+            <a class="dropdown-item" (click)="getEpisodios()">Todos</a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="getEpisodiosAlfabetico()">A-Z</a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="getEpisodiosAntiAlfabetico()">Z-A</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-lg-10 col-md-10 col-12 mb-2 d-flex justify-content-center align-items-center">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchedEpisodio" autocomplete="off"
+        placeholder="Buscar un episodio" />
+      <img src="../assets/lupa.png" alt="Lupa" width="35" height="35" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 episodio" *ngFor="let episodio of episodios | filter : searchedEpisodio "
+      (click)="mostrarDetallesEpisodio(episodio)">
+      <div class="card">
+        <img class="card-img-top clickeable" src="{{ episodio.imagen }}" alt="{{ episodio.nombre }}" />
+
+        <div class="card-body">
+          <h5 class="card-title">{{ episodio.nombre }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--   actores -->
+  <div class="row participantes">
+    <div class="col-12">
+      <h2>Actores</h2>
+      <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 participante" *ngFor="let actor of serieDetail?.actores">
+          <div class="card">
+            <a [routerLink]="['/actores', actor.id]">
+              <img class="card-img-top" src="{{ actor.foto }}" alt="{{ actor.nombre }}" />
+            </a>
+
+            <div class="card-body">
+              <h5 class="card-title">{{ actor.nombre }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="row participantes"
+    *ngIf="serieDetail && serieDetail.directores && serieDetail.directores.length > 0; else noSeries">
+    <div class="col-12">
+      <h2>Directores</h2>
+      <div class="row justify-content-center align-items-center" [ngClass]="{'center-cards': serieDetail.directores.length < 4}">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 participante" *ngFor="let director of serieDetail?.directores">
+          <div class="card">
+            <a [routerLink]="['/directores', director.id]">
+              <img class="card-img-top" src="{{ director.foto }}" alt="{{ director.nombre }}" />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">{{ director.nombre }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noSeries>
+    <div class="row episodios">
+      <div class="col-12">
+        <h2>Directores</h2>
+        <div class="row">
+          <h4>Este serie no tiene un director asociado</h4>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+
+
+
+
+
+  <!-- plataformas -->
+  <div class="row episodios">
+    <div class="col-12">
+      <h2>Plataformas</h2>
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 plataforma" *ngFor="let plataforma of serieDetail?.plataformas">
+          <div class="card">
+            <a [routerLink]="['/plataformas', plataforma.id]">
+              <img class="card-img-top" src="{{ plataforma.logo }}" alt="{{ plataforma.nombre }}" />
+            </a>
+
+            <div class="card-body">
+              <h5 class="card-title">{{ plataforma.nombre }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

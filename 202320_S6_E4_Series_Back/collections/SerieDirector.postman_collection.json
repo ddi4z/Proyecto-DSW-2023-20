@@ -1,0 +1,930 @@
+{
+	"info": {
+		"_postman_id": "09942302-50a9-4b58-96ff-801d8f13c169",
+		"name": "SerieDirector",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29104017"
+	},
+	"item": [
+		{
+			"name": "Crear una serie Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"serie_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una serie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"Peaky Blinders\",\n    \"imagen\": \"PeakyBlinders.png\",\n    \"wallpaper\": \"PeakyBlinders.png\",\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\n    \"anio\": 2013\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear Participante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"participante_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Juan Diego Gomez\",\r\n    \"foto\": \"https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez.jpg\",\r\n    \"descripcion\": \"este es un participante\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/participantes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"participantes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear Participante",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Juan Diego Gomez\",\r\n    \"foto\": \"https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez.jpg\",\r\n    \"descripcion\": \"este es un participante\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/participantes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"participantes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Crear Participante 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"participante_id_2\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Stella\",\r\n    \"foto\": \"https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez.jpg\",\r\n    \"descripcion\": \"este es un participante\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/participantes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"participantes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear Participante",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Juan Diego Gomez\",\r\n    \"foto\": \"https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez.jpg\",\r\n    \"descripcion\": \"este es un participante\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/participantes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"participantes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Agregar un director a una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/series/{{serie_id}}/directores/{{participante_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series",
+						"{{serie_id}}",
+						"directores",
+						"{{participante_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar un director a una serie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/series/{{serie_id}}/directores/{{participante_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series",
+								"{{serie_id}}",
+								"directores",
+								"{{participante_id_1}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Tom Harper\",\r\n    \"foto\": \"TomHarper.png\",\r\n    \"descripcion\": \"Director de cine nominado al premio BAFTA. Su trabajo incluye Misfits, The Scouting Book for Boys, This is England '86, The Borrowers, Peaky Blinders y The Woman in Black: Angel of Death.\",\r\n    \"seriesActuadas\": [],\r\n    \"seriesDirigidas\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nombre\": \"Peaky Blinders\",\r\n            \"imagen\": \"PeakyBlinders.png\",\r\n            \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\"\r\n        }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar un director que no existe a una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Participante no encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/series/{{serie_id}}/directores/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series",
+						"{{serie_id}}",
+						"directores",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar un director que no existe a una serie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/series/{{serie_id}}/directores/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series",
+								"{{serie_id}}",
+								"directores",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:15:29\",\r\n        \"message\": \"El participante con el id dado no existe\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un director de una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/series/{{serie_id}}/directores/{{participante_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series",
+						"{{serie_id}}",
+						"directores",
+						"{{participante_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un director de una serie",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/series/{{serie_id}}/directores/{{participante_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series",
+								"{{serie_id}}",
+								"directores",
+								"{{participante_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Tom Harper\",\r\n    \"foto\": \"TomHarper.png\",\r\n    \"descripcion\": \"Director de cine nominado al premio BAFTA. Su trabajo incluye Misfits, The Scouting Book for Boys, This is England '86, The Borrowers, Peaky Blinders y The Woman in Black: Angel of Death.\",\r\n    \"seriesActuadas\": [],\r\n    \"seriesDirigidas\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nombre\": \"Peaky Blinders\",\r\n            \"imagen\": \"PeakyBlinders.png\",\r\n            \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\"\r\n        }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un director que no existe de una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Participante no encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/series/{{serie_id}}/directores/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series",
+						"{{serie_id}}",
+						"directores",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un director que no existe de una serie",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/series/{{serie_id}}/directores/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series",
+								"{{serie_id}}",
+								"directores",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:17:39\",\r\n        \"message\": \"El participante con el id dado no existe\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un director que no esta asociado a una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"El director no se encuentra asociado a la serie\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/series/{{serie_id}}/directores/{{participante_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series",
+						"{{serie_id}}",
+						"directores",
+						"{{participante_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un director que no esta asociado a una serie",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/series/{{serie_id}}/directores/{{participante_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series",
+								"{{serie_id}}",
+								"directores",
+								"{{participante_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"PRECONDITION_FAILED\",\r\n        \"timestamp\": \"21-02-2023 10:19:03\",\r\n        \"message\": \"El director no se encuentra asociado a la serie\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener los directores de una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Numero de directores > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/series/{{serie_id}}/directores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series",
+						"{{serie_id}}",
+						"directores"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener los directores de una serie",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/series/{{serie_id}}/directores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series",
+								"{{serie_id}}",
+								"directores"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": 1,\r\n        \"nombre\": \"Tom Harper\",\r\n        \"foto\": \"TomHarper.png\",\r\n        \"descripcion\": \"Director de cine nominado al premio BAFTA. Su trabajo incluye Misfits, The Scouting Book for Boys, This is England '86, The Borrowers, Peaky Blinders y The Woman in Black: Angel of Death.\",\r\n        \"seriesActuadas\": [],\r\n        \"seriesDirigidas\": [\r\n            {\r\n                \"id\": 1,\r\n                \"nombre\": \"Peaky Blinders\",\r\n                \"imagen\": \"PeakyBlinders.png\",\r\n                \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\"\r\n            }\r\n        ]\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Asociar directores a una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"nombre\": \"Juan Diego Gomez\",\r\n        \"foto\": \"https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez.jpg\",\r\n        \"descripcion\": \"este es un participante\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"nombre\": \"Stella\",\r\n        \"foto\": \"https://commons.wikimedia.org/wiki/File:Gabriel_Garcia_Marquez.jpg\",\r\n        \"descripcion\": \"este es un participante\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/series/{{serie_id_1}}/directores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series",
+						"{{serie_id_1}}",
+						"directores"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar directores a una serie",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"nombre\": \"Tom Harper\",\r\n        \"foto\": \"TomHarper.png\",\r\n        \"descripcion\": \"Director de cine nominado al premio BAFTA. Su trabajo incluye Misfits, The Scouting Book for Boys, This is England '86, The Borrowers, Peaky Blinders y The Woman in Black: Angel of Death.\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"nombre\": \"Otto Bathurst\",\r\n        \"foto\": \"OttoBathurst.png\",\r\n        \"descripcion\": \"Director de cine y televisión británico. En 2014, ganó un BAFTA por su trabajo en el drama de la BBC Peaky Blinders.\",\r\n    }\r\n]"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/series/{{serie_id}}/directores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series",
+								"{{serie_id}}",
+								"directores"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": 1,\r\n        \"nombre\": \"Tom Harper\",\r\n        \"foto\": \"TomHarper.png\",\r\n        \"descripcion\": \"Director de cine nominado al premio BAFTA. Su trabajo incluye Misfits, The Scouting Book for Boys, This is England '86, The Borrowers, Peaky Blinders y The Woman in Black: Angel of Death.\",\r\n    \"seriesActuadas\": [],\r\n    \"seriesDirigidas\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nombre\": \"Peaky Blinders\",\r\n            \"imagen\": \"PeakyBlinders.png\",\r\n            \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\"\r\n        }\r\n    ]\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"nombre\": \"Otto Bathurst\",\r\n        \"foto\": \"OttoBathurst.png\",\r\n        \"descripcion\": \"Director de cine y televisión británico. En 2014, ganó un BAFTA por su trabajo en el drama de la BBC Peaky Blinders.\",\r\n        \"seriesActuadas\": [],\r\n    \"seriesDirigidas\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nombre\": \"Peaky Blinders\",\r\n            \"imagen\": \"PeakyBlinders.png\",\r\n            \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\"\r\n        }\r\n    ]\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Asociar un director que no existe a una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Participante no encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 0,\r\n        \"nombre\": \"Tom Harper\",\r\n        \"foto\": \"TomHarper.png\",\r\n        \"descripcion\": \"Director de cine nominado al premio BAFTA. Su trabajo incluye Misfits, The Scouting Book for Boys, This is England '86, The Borrowers, Peaky Blinders y The Woman in Black: Angel of Death.\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/series/{{serie_id}}/directores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series",
+						"{{serie_id}}",
+						"directores"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar directores que no existen a una serie",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 0,\r\n        \"nombre\": \"Tom Harper\",\r\n        \"foto\": \"TomHarper.png\",\r\n        \"descripcion\": \"Director de cine nominado al premio BAFTA. Su trabajo incluye Misfits, The Scouting Book for Boys, This is England '86, The Borrowers, Peaky Blinders y The Woman in Black: Angel of Death.\",\r\n    }\r\n]"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/series/{{serie_id}}/directores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series",
+								"{{serie_id}}",
+								"directores"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:25:21\",\r\n        \"message\": \"El participante con el id dado no existe\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar un director de una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/series/{{serie_id}}/directores/{{participante_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series",
+						"{{serie_id}}",
+						"directores",
+						"{{participante_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un director de una serie",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/series/{{serie_id}}/directores/{{participante_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series",
+								"{{serie_id}}",
+								"directores",
+								"{{participante_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar un director que no existe de una serie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Participante no encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/series/{{serie_id}}/directores/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series",
+						"{{serie_id}}",
+						"directores",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un director que no existe de una serie",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/series/{{serie_id}}/directores/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series",
+								"{{serie_id}}",
+								"directores",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:17:39\",\r\n        \"message\": \"El participante con el id dado no existe\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar un director a una serie que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Serie no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/series/0/directores/{{participante_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series",
+						"0",
+						"directores",
+						"{{participante_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un director a una serie que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/series/0/directores/{{participante_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series",
+								"0",
+								"directores",
+								"{{participante_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:17:39\",\r\n        \"message\": \"La serie con el id dado no existe\"\r\n    }\r\n}"
+				}
+			]
+		}
+	]
+}

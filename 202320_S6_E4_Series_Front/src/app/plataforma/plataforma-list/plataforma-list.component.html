@@ -1,0 +1,54 @@
+<div class="container-fluid series">
+
+  <div class="row opciones">
+    <h2>Todas las plataformas</h2>
+    <div class="col-lg-2 col-md-2 col-12 align-items-center justify-content-center mb-2 d-flex">
+      <div class="dropdown d-flex">
+        <button class="btn btn-azul-oscuro dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Ordenar
+        </button>
+        <ul class="dropdown-menu dropdown-oscuro">
+          <li>
+            <a class="dropdown-item" (click)="getPlataformas()">Todos</a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="getPlataformasAlfabeticamente()">A-Z</a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="getPlataformasAntiAlfabeticamente()">Z-A</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-lg-10 col-md-10 col-12 mb-2 d-flex justify-content-center align-items-center">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchedPlataforma" autocomplete="off"
+        placeholder="Buscar una plataforma" (ngModelChange)="onSearchChangePlataforma()"/>
+      <img src="../assets/lupa.png" alt="Lupa" width="35" height="35" />
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"
+      *ngFor="let plataforma of plataformas | filter : searchedPlataforma | paginate: { itemsPerPage: itemsPerPage, currentPage: p, id: 'plataformas-pagination' }; let i = index">
+      <div class="card p-2" [ngClass]="{'card-oscura': i % 2 === 0, 'card-clara': i % 2 !== 0}">
+
+        <a [routerLink]="['/plataformas', plataforma.id]">
+          <img class="card-img-top" src="{{ plataforma.logo }}" alt="{{ plataforma.nombre }}" />
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">{{ plataforma.nombre }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-12 d-flex justify-content-center align-items-center">
+      <pagination-controls (pageChange)="p = $event" id="plataformas-pagination"  
+      previousLabel="Anterior"
+      nextLabel="Siguiente"></pagination-controls>
+    </div>
+  </div>
+</div>

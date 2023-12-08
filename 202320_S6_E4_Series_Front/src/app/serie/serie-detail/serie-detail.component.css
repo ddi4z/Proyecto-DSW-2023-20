@@ -1,0 +1,223 @@
+.container-fluid {
+    margin: 150px auto;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.poster {
+    border: 10px solid #4e4feb;
+}
+
+.info-serie {
+    margin: 100px auto;
+}
+
+.info-serie p {
+    color: white;
+    font-size: 20px;
+    margin-right: 2rem;
+}
+
+span {
+    color: #4e4feb;
+}
+
+.info-serie h1 {
+    color: #4e4feb;
+    font-size: 50px;
+    margin-right: 2rem;
+}
+
+.info-serie h2 {
+    color: #4e4feb;
+    font-size: 30px;
+    margin-right: 2rem;
+}
+
+.episodio .card {
+    background-color: #4e4feb;
+    border: 10px solid #4e4feb;
+    color: white;
+    margin-bottom: 25px;
+    min-height: 19rem;
+}
+
+.plataforma .card {
+    background-color: #4e4feb;
+    border: 10px solid #4e4feb;
+    color: white;
+    margin-bottom: 25px;
+    min-height: 18rem;
+}
+
+.participante .card {
+    background-color: #4e4feb;
+    border: 10px solid #4e4feb;
+    color: white;
+    margin-bottom: 25px;
+    min-height: 22rem;
+}
+
+.episodio .card:hover, .participante .card:hover, .plataforma .card:hover {
+    background-color: #4040be;
+    border: 10px solid #4040be;
+}
+
+.episodio .card img {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+}
+
+.plataforma .card img {
+    width: 100%;
+    height: 10rem;
+}
+
+.participante .card img {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+}
+
+.btn-categoria {
+    background-color: #4e4feb;
+    color: white;
+    border: 0px solid #4e4feb;
+    margin: 5px;
+}
+
+.btn-categoria:hover {
+    background-color: #4040be;
+    border: 0px solid #4040be;
+    cursor: pointer;
+}
+
+.card-title {
+    font-size: 20px;
+    text-align: center;
+}
+
+.episodios,
+.participantes {
+    margin: 20px auto;
+}
+
+.episodios h2,
+.episodios h4,
+.participantes h2,
+.participantes h4 {
+    color: white;
+    text-align: center;
+    margin: 1rem;
+}
+
+.full-size-img {
+    width: 100%;
+    height: 100%;
+}
+
+.clickeable {
+    cursor: pointer;
+}
+
+.notClickeable {
+    cursor: default;
+}
+
+input {
+    background-color: #000000;
+    color: #4e4feb;
+    border: 3px solid #4e4feb;
+}
+
+input::placeholder {
+    color: #4e4feb;
+}
+
+input:focus {
+    background-color: #000000;
+    color: #4e4feb;
+    border: 3px solid #4e4feb;
+}
+
+.wallpaper {
+    width: 50%;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.episodio-detail {
+    padding: 10px;
+    margin: 0 auto;
+    background-color: #4e4feb;
+}
+
+.episodio-detail img {
+    padding: 0px;
+}
+
+.episodio-detail h2 {
+    color: white;
+    text-align: center;
+    margin: 1rem;
+}
+
+.episodio-detail strong {
+    color: #d2d2ff;
+}
+
+.dropdown-oscuro {
+    background-color: #4e4feb;
+}
+
+.dropdown-oscuro li a {
+    color: white;
+    background-color: #4e4feb;
+}
+
+.dropdown-oscuro li a:hover {
+    background-color: #4040be;
+}
+
+.btn-azul-oscuro {
+    background-color: #4e4feb;
+    color: white;
+    border: 0px solid #4E4FEB;
+}
+
+.img-blur {
+    --blur-amount: 10px;
+    --margin-top: 80px;
+  
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: var(--margin-top);
+  }
+  
+  .blur {
+    filter: blur(var(--blur-amount));
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+  }
+
+
+.btn-azul-oscuro:hover {
+    background-color: #4040be;
+    cursor: pointer;
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

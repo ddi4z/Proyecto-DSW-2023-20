@@ -1,0 +1,1026 @@
+{
+	"info": {
+		"_postman_id": "19f60a58-5aea-4e89-9a67-b79497ea7a2f",
+		"name": "PlataformaSerie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29104017"
+	},
+	"item": [
+		{
+			"name": "Crear una serie Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"serie_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una serie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"Peaky Blinders\",\n    \"imagen\": \"PeakyBlinders.png\",\n    \"wallpaper\": \"PeakyBlinders.png\",\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\n    \"anio\": 2013\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear una serie Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"serie_id_2\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"wallpaper\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"anio\": 2013\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una serie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"series"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"Peaky Blinders\",\n    \"imagen\": \"PeakyBlinders.png\",\n    \"wallpaper\": \"PeakyBlinders.png\",\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\n    \"anio\": 2013\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"plataforma_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Cuevana\",\r\n    \"sitioWeb\": \"https://cuevana.pro/\",\r\n    \"logo\": \"https://cuevana.pro/cuevana3.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una plataforma",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Cuevana\",\r\n    \"sitioWeb\": \"https://cuevana.pro/\",\r\n    \"logo\": \"https://cuevana.pro/cuevana3.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataformas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"Cuevana\",\n    \"sitioWeb\": \"https://cuevana.pro/\",\n    \"logo\": \"https://cuevana.pro/cuevana3.png\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar una serie a una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id_1}}/series/{{serie_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id_1}}",
+						"series",
+						"{{serie_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar una serie a una plataforma",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id_1}}/series/{{serie_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id_1}}",
+								"series",
+								"{{serie_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Peaky Blinders\",\r\n    \"imagen\": \"PeakyBlinders.png\",\r\n    \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n    \"plataformas\": [{{plataforma_id_1}}]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar una serie inexistente a una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Serie no encontrada\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id_1}}/series/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id_1}}",
+						"series",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar una serie inexistente a una plataforma",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id_1}}/series/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id_1}}",
+								"series",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 20:01:09\",\n        \"message\": \"Serie no encontrada\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una serie de una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/{{serie_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series",
+						"{{serie_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una serie de una plataforma",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/{{serie_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series",
+								"{{serie_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Flash\",\r\n    \"imagen\": \"https://www.tonica.la/series/The-Flash-temporada-6-ya-esta-en-Netflix-20200520-0006.html#&gid=1&pid=1\",\r\n    \"sinopsis\": \"En esta serie del clásico superhéroe, un especialista forense vuelve de un coma y descubre que posee poderes que le permitirán enfrentar a quienes amenacen a su ciudad.\",\r\n    \"plataformas\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nombre\": \"Netflix\",\r\n            \"sitioWeb\": \"https://www.netflix.com/co/\",\r\n            \"logo\": \"https://brand.netflix.com/en/assets/logos/\"\r\n        }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una serie que no existe en una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Serie no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una serie que no existe en una plataforma",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:17:39\",\r\n        \"message\": \"Serie no encontrada\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una serie que no esta asociada a una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"La serie no esta asociada con la plataforma\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/{{serie_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series",
+						"{{serie_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una serie que no esta asociada a una plataforma",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/{{serie_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series",
+								"{{serie_id}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"PRECONDITION_FAILED\",\r\n        \"timestamp\": \"21-02-2023 10:19:03\",\r\n        \"message\": \"La serie no esta asociada a la plataforma\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener las series de una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of books > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener las series de una plataforma",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": 1,\r\n        \"nombre\": \"Peaky Blinders\",\r\n        \"imagen\": \"PeakyBlinders.png\",\r\n        \"sinopsis\": \"Birmingham, 1939. Thomas Shelby es el violento líder de una conocida banda. Es un jefe del crimen organizado dispuesto a llegar a lo más alto sin importar el precio.\",\r\n        \"categorias\": [],\r\n        \"directores\": [],\r\n        \"actores\": [],\r\n        \"episodios\": [],\r\n        \"plataformas\": [\r\n            {\r\n                \"id\": 1,\r\n                \"nombre\": \"Cuevana\",\r\n                \"sitioWeb\": \"https://cuevana.pro/\",\r\n                \"logo\": \"https://cuevana.pro/cuevana3.png\"\r\n            }\r\n        ]\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Asociar series a una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": {{serie_id_1}}\r\n    },\r\n    {\r\n        \"id\": {{serie_id_2}}\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar series a una plataforma",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": {{serie_id_1}}\r\n    },\r\n    {\r\n        \"id\": {{serie_id_2}}\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": 1,\r\n        \"nombre\": \"Flash\",\r\n        \"imagen\": \"https://www.tonica.la/series/The-Flash-temporada-6-ya-esta-en-Netflix-20200520-0006.html#&gid=1&pid=1\",\r\n        \"sinopsis\": \"En esta serie del clásico superhéroe, un especialista forense vuelve de un coma y descubre que posee poderes que le permitirán enfrentar a quienes amenacen a su ciudad.\",\r\n        \"plataformas\": []\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"nombre\": \"Nombre serie 2\",\r\n        \"imagen\": \"https://www.tonica.la/series/The-Flash-temporada-6-ya-esta-en-Netflix-20200520-0006.html#&gid=1&pid=1\",\r\n        \"sinopsis\": \"En esta parte va la sinopsis para la serie 2.\",\r\n        \"plataformas\": []\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Asociar series que no existen a una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Serie no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 0\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar series que no existen a una plataforma",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 0\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:25:21\",\r\n        \"message\": \"Serie no encontrada\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar una serie de una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/{{serie_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series",
+						"{{serie_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una serie de una plataforma",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/{{serie_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series",
+								"{{serie_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar una serie de una plataforma inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Plataforma no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/0/series/{{serie_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"0",
+						"series",
+						"{{serie_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una serie de una plataforma inexistente",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/0/series/{{serie_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"0",
+								"series",
+								"{{serie_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:25:21\",\r\n        \"message\": \"The book with the given id was not found\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar una serie inexistente de una plataforma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Serie no encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plataformas",
+						"{{plataforma_id}}",
+						"series",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una serie inexistente de una plataforma",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plataformas/{{plataforma_id}}/series/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plataformas",
+								"{{plataforma_id}}",
+								"series",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:25:21\",\r\n        \"message\": \"The book with the given id was not found\"\r\n    }\r\n}"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,143 @@
+<testExecutions version="1">
+  <file path="src/app/plataforma/plataforma-list/plataforma-list.component.spec.ts">
+    <testCase name="PlataformaListComponent should get plataformas" duration="204"/>
+    <testCase name="PlataformaListComponent should fetch plataformas and assign them to component" duration="26"/>
+    <testCase name="PlataformaListComponent should set selectedPlataforma and selected on onSelected" duration="16"/>
+    <testCase name="PlataformaListComponent should get plataformas alfabeticamente" duration="13"/>
+    <testCase name="PlataformaListComponent should create" duration="12"/>
+    <testCase name="PlataformaListComponent should get plataformas anti-alfabeticamente" duration="11"/>
+  </file>
+  <file path="src/app/plataforma/plataforma-detail/plataforma-detail.component.spec.ts">
+    <testCase name="PlataformaDetailComponent should fetch plataforma details on init" duration="25"/>
+    <testCase name="PlataformaDetailComponent should create" duration="4"/>
+  </file>
+  <file path="src/app/plataforma/plan.service.spec.ts">
+    <testCase name="PlanService should retrieve a single plan" duration="4"/>
+    <testCase name="PlanService should retrieve plans with decreasing price" duration="2"/>
+    <testCase name="PlanService should retrieve plans" duration="4"/>
+    <testCase name="PlanService should be created" duration="6"/>
+  </file>
+  <file path="src/app/actor/actor-list/actor-list.component.spec.ts">
+    <testCase name="ActorListComponent should call getActoresAntiAlfabeticamente and update actores" duration="23"/>
+    <testCase name="ActorListComponent should call getActoresAlfabeticamente and update actores" duration="18"/>
+    <testCase name="ActorListComponent should create" duration="12"/>
+    <testCase name="ActorListComponent should fetch actores and assign them to component" duration="12"/>
+    <testCase name="ActorListComponent should set selectedActor and selected on onSelected" duration="13"/>
+    <testCase name="ActorListComponent should fetch actores and assign them to component" duration="12"/>
+  </file>
+  <file path="src/app/director/director.service.spec.ts">
+    <testCase name="DirectorService should be created" duration="4"/>
+    <testCase name="DirectorService should get a list of directors" duration="4"/>
+    <testCase name="DirectorService should get a director by id" duration="5"/>
+    <testCase name="DirectorService should get actores anti-alfabeticamente" duration="4"/>
+    <testCase name="DirectorService should get actores alfabeticamente" duration="2"/>
+  </file>
+  <file path="src/app/actor/actor-detail/actor-detail.component.spec.ts">
+    <testCase name="ActorDetailComponent should fetch actor details on init" duration="17"/>
+    <testCase name="ActorDetailComponent should create" duration="8"/>
+  </file>
+  <file path="src/app/serie/serie.service.spec.ts">
+    <testCase name="Service: Serie should get series anti-alfabeticamente" duration="3"/>
+    <testCase name="Service: Serie should get a single Serie by ID" duration="3"/>
+    <testCase name="Service: Serie should get series alfabeticamente" duration="3"/>
+    <testCase name="Service: Serie should ..." duration="1"/>
+  </file>
+  <file path="src/app/serie/serie-list/serie-list.component.spec.ts">
+    <testCase name="Episodio should set properties correctly through the constructor" duration="1"/>
+    <testCase name="Episodio should create an instance" duration="1"/>
+    <testCase name="SerieListComponent should set anioMenor and anioSuperior on onChangeAnio" duration="58"/>
+    <testCase name="SerieListComponent should reset selectedSerie on mouse leave" duration="55"/>
+    <testCase name="SerieListComponent should set searchedPlataforma on onChangePlataforma" duration="45"/>
+    <testCase name="SerieListComponent should set selectedSerie on mouse enter" duration="42"/>
+    <testCase name="SerieListComponent should not change sinopsis if its length is 200 characters or less" duration="34"/>
+    <testCase name="SerieListComponent should load carrousel with series" duration="44"/>
+    <testCase name="SerieListComponent should fetch platforms and assign them to component" duration="32"/>
+    <testCase name="SerieListComponent should set selectedSerie and selected on onSelected" duration="36"/>
+    <testCase name="SerieListComponent should shorten sinopsis if its length is greater than 90 characters" duration="31"/>
+    <testCase name="SerieListComponent should convert categories to string" duration="32"/>
+    <testCase name="SerieListComponent should fetch series and assign them to component" duration="29"/>
+    <testCase name="SerieListComponent should load series in reverse alphabetical order" duration="33"/>
+    <testCase name="SerieListComponent should shorten sinopsis" duration="31"/>
+    <testCase name="SerieListComponent should create" duration="32"/>
+    <testCase name="SerieListComponent should load series alphabetically" duration="43"/>
+  </file>
+  <file path="src/app/categoria/categoria-list/categoria-list.component.spec.ts">
+    <testCase name="CategoriaListComponent should create" duration="13"/>
+    <testCase name="CategoriaListComponent should set selectedCategoria and selected on selectCategoria" duration="11"/>
+    <testCase name="CategoriaListComponent should fetch categorias and assign them to component" duration="11"/>
+  </file>
+  <file path="src/app/serie/serie-detail/serie-detail.component.spec.ts">
+    <testCase name="SerieDetailComponent should fetch serie details on ngOnInit" duration="40"/>
+    <testCase name="SerieDetailComponent should create" duration="139"/>
+    <testCase name="SerieDetailComponent should set episodioSeleccionado when mostrarDetallesEpisodio is called" duration="52"/>
+  </file>
+  <file path="src/app/categoria/categoria-detail/categoria-detail.component.spec.ts">
+    <testCase name="CategoriaDetailComponent should shorten sinopsis" duration="13"/>
+    <testCase name="CategoriaDetailComponent should set selectedSerie on mouse enter" duration="11"/>
+    <testCase name="CategoriaDetailComponent should load series of a category alphabetically" duration="8"/>
+    <testCase name="CategoriaDetailComponent should convert categories to string" duration="11"/>
+    <testCase name="CategoriaDetailComponent should reset selectedSerie on mouse leave" duration="8"/>
+    <testCase name="CategoriaDetailComponent should create" duration="8"/>
+    <testCase name="CategoriaDetailComponent should load series of a category in reverse alphabetical order" duration="9"/>
+    <testCase name="CategoriaDetailComponent should shorten sinopsis if its length is greater than 90 characters" duration="8"/>
+    <testCase name="CategoriaDetailComponent should call getCategoria and getSeriesCategoria on ngOnInit" duration="14"/>
+    <testCase name="CategoriaDetailComponent should load series of a category" duration="10"/>
+  </file>
+  <file path="src/app/serie/filter.pipe.spec.ts">
+    <testCase name="FilterByAnioPipe should filter series by anio range" duration="3"/>
+    <testCase name="FilterByAnioPipe should return all series if no anio range is provided" duration="3"/>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should have as title 'base-project'" duration="20"/>
+    <testCase name="AppComponent should create the app" duration="10"/>
+  </file>
+  <file path="src/app/director/director-list/director-list.component.spec.ts">
+    <testCase name="DirectorListComponent should call getDirectoresAlfabeticamente and update actores" duration="24"/>
+    <testCase name="DirectorListComponent should create" duration="11"/>
+    <testCase name="DirectorListComponent should set selectedDirector and selected on onSelected" duration="19"/>
+    <testCase name="DirectorListComponent should call getDirectoresAntiAlfabeticamente and update actores" duration="12"/>
+    <testCase name="DirectorListComponent should fetch directores and assign them to component" duration="16"/>
+  </file>
+  <file path="src/app/serie/filter.pipe.spec.ts">
+    <testCase name="FilterByPlataformaPipe should return all series if no plataforma is provided" duration="5"/>
+    <testCase name="FilterByPlataformaPipe should filter series by plataforma" duration="12"/>
+  </file>
+  <file path="src/app/actor/actor.service.spec.ts">
+    <testCase name="ActorService should get a list of actors" duration="3"/>
+    <testCase name="ActorService should get an actor by id" duration="3"/>
+    <testCase name="ActorService should be created" duration="3"/>
+    <testCase name="ActorService should get actores anti-alfabeticamente" duration="2"/>
+    <testCase name="ActorService should get actores alfabeticamente" duration="3"/>
+  </file>
+  <file path="src/app/director/director-detail/director-detail.component.spec.ts">
+    <testCase name="DirectorDetailComponent should fetch director details on init" duration="18"/>
+    <testCase name="DirectorDetailComponent should create" duration="8"/>
+  </file>
+  <file path="src/app/serie/episodio.service.spec.ts">
+    <testCase name="EpisodioService should retrieve episodios anti-alfabeticamente" duration="4"/>
+    <testCase name="EpisodioService should retrieve a single episodio" duration="4"/>
+    <testCase name="EpisodioService should retrieve episodios alfabeticamente" duration="4"/>
+    <testCase name="EpisodioService should retrieve episodios" duration="2"/>
+    <testCase name="EpisodioService should be created" duration="3"/>
+  </file>
+  <file path="src/app/categoria/categoria.service.spec.ts">
+    <testCase name="CategoriaService should retrieve categories from the API via GET" duration="3"/>
+    <testCase name="CategoriaService should be created" duration="3"/>
+    <testCase name="CategoriaService should handle errors when fetching categories" duration="6"/>
+    <testCase name="CategoriaService should get series for a categoria alfabeticamente" duration="14"/>
+    <testCase name="CategoriaService should retrieve a category by id from the API via GET" duration="4"/>
+    <testCase name="CategoriaService should get series for a categoria" duration="3"/>
+    <testCase name="CategoriaService should get series for a categoria anti-alfabeticamente" duration="3"/>
+  </file>
+  <file path="src/app/plataforma/plataforma.service.spec.ts">
+    <testCase name="PlataformaService should get plataformas anti-alfabeticamente" duration="4"/>
+    <testCase name="PlataformaService should get plataformas alfabeticamente" duration="4"/>
+    <testCase name="PlataformaService should retrieve a platform by id from the API via GET" duration="2"/>
+    <testCase name="PlataformaService should retrieve platforms from the API via GET" duration="2"/>
+    <testCase name="PlataformaService should be created" duration="4"/>
+  </file>
+  <file path="src/app/plataforma/plataforma-list/plataforma-list.component.spec.ts">
+    <testCase name="Plan should set properties correctly through the constructor" duration="1"/>
+    <testCase name="Plan should create an instance" duration="1"/>
+  </file>
+</testExecutions>

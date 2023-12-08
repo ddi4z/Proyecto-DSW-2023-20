@@ -1,0 +1,43 @@
+.custom-navbar {
+  background-color: #000000;
+  position: fixed;
+  z-index: 1000;
+}
+
+.custom-navbar a {
+  color: white;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.custom-navbar a:hover {
+  color: #4E4FEB;
+}
+
+span {
+  color: #4E4FEB;
+}
+
+.navbar-toggler {
+  background-color: #4E4FEB;
+}
+
+.nav-link {
+  margin-left: 1.5rem;
+}
+
+.footer {
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #000000;
+  color: white;
+  text-align: center;
+}
+
+.nav-img{
+  width: 30px;
+  height: 30px;
+  margin-bottom: 6px;
+}

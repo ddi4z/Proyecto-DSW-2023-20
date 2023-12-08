@@ -1,0 +1,278 @@
+p {
+  color: white;
+}
+
+
+
+h2 {
+  padding: 10rem;
+  color: white;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  font-size: 4rem;
+  z-index: 1;
+  text-shadow: 3px 3px 3px #333333;
+  -webkit-text-stroke: 1px #333333;
+}
+
+.categorias {
+  margin: 100px auto;
+}
+
+.episodio .card {
+  background-color: #4E4FEB;
+  border: 10px solid #4E4FEB;
+  color: white;
+  margin-top: 50px;
+  min-height: 17rem;
+}
+
+
+.card-oscura {
+  background-color: #1363DF;
+  color: white;
+  border: 0px;
+}
+
+.card-clara {
+  background-color: #47B5FF;
+  color: white;
+  border: 0px;
+}
+
+.series {
+  margin: 50px auto;
+}
+
+.opciones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+}
+
+
+
+.title {
+  color: white;
+  text-align: center;
+
+}
+
+.btn-azul-claro {
+  background-color: #47B5FF;
+  color: white;
+  border: 0px solid #47B5FF;
+}
+
+.btn-azul-oscuro {
+  background-color: #4E4FEB;
+  color: white;
+  border: 0px solid #4E4FEB;
+
+}
+
+
+
+input {
+  background-color: #000000;
+  color: #4E4FEB;
+  border: 3px solid #4E4FEB;
+}
+
+input::placeholder {
+  color: #4E4FEB;
+}
+
+input:focus {
+  background-color: #000000;
+  color: #4E4FEB;
+  border: 3px solid #4E4FEB;
+}
+
+button {
+  background-color: #000000;
+  color: white;
+  border: 0px solid #4E4FEB;
+  margin: 5px;
+}
+
+.plataformas {
+  background-color: #000000;
+  color: #4E4FEB;
+}
+
+.notClickeable {
+  cursor: default;
+}
+
+.dropdown-claro {
+  background-color: #47B5FF;
+}
+
+.dropdown-claro li a {
+  color: white;
+}
+
+.dropdown-oscuro {
+  background-color: #4E4FEB;
+}
+
+.dropdown-oscuro li a {
+  color: white;
+  background-color: #4E4FEB;
+}
+
+.dropdown-oscuro li a:hover {
+  background-color: #4040be;
+}
+
+label {
+  color: white;
+}
+
+.card {
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 20px;
+  min-height: 22rem;
+}
+
+.card img {
+  width: 100%;
+  height: 16rem;
+  object-fit: cover;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 110, 255, 0.8);
+  color: #fff;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.categories-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card:hover .overlay-text {
+  display: flex;
+
+}
+
+h5 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.card-flip-categorias {
+  position: absolute;
+  bottom: 10px;
+  margin-right: 0.5rem;
+}
+
+#carouselExampleInterval {
+  margin-top: 3rem;
+  height: 90vh;
+}
+
+.carrousel-background {
+  height: 90vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  height: 90vh;
+  background: none;
+}
+
+.h2-carrousel {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.p-carrousel {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  max-width: 600px;
+  color: white;
+
+  padding: 10px;
+}
+
+.fondo-flip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.card-oscura .fondo-flip {
+  background-color: rgba(10, 50, 111, 0.9);
+}
+
+.card-clara .fondo-flip {
+  background-color: rgba(36, 90, 128, 0.9);
+}
+
+.paginacion {
+  background-size: cover;
+}
+
+#series-pagination ::ng-deep .ngx-pagination li a {
+  color: white;
+}
+
+#series-pagination ::ng-deep .ngx-pagination .current {
+  background: #1363DF;
+}
+
+
+#series-pagination ::ng-deep .ngx-pagination li a:hover {
+  background-color: #47B5FF;
+}
+
+
+.img-categoria{
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 80px;
+  height: 70vh;
+}
+
+.blur{
+  filter: blur(4px);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+}

@@ -1,0 +1,71 @@
+<div class="container-fluid series">
+  <div class="row img-categoria">
+    <div class="blur"
+      style="background-image: url('{{ categoriaDetail?.imagen }}');">
+    </div>
+    <h2>{{categoriaDetail?.nombre}}</h2>
+  </div>
+
+
+  <div class="row opciones">
+
+    <div class="col-lg-2 col-md-2 col-12 mb-2 align-items-center justify-content-center d-flex">
+      <div class="dropdown">
+        <button class="btn btn-azul-oscuro dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Ordenar
+        </button>
+        <ul class="dropdown-menu dropdown-oscuro">
+          <li>
+            <a class="dropdown-item" (click)="getSeriesCategoria()">Ninguno</a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="getSeriesCategoriaAlfabeticamente()">A-Z</a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="getSeriesCategoriaAntiAlfabeticamente()">Z-A</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-lg-10 col-md-10 col-12 mb-2 d-flex justify-content-center align-items-center">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchedSerie" autocomplete="off"
+        placeholder="Buscar una serie" (ngModelChange)="onSearchChangeSerieCategoria()"/>
+      <img src="../assets/lupa.png" alt="Lupa" width="35" height="35" />
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"
+      *ngFor="let serieCategoria of seriesCategoria  |  paginate : { itemsPerPage: itemsPerPage, currentPage: p, id: 'series-pagination' }| filter : searchedSerie;  let i = index ">
+      <div [routerLink]="['/series', serieCategoria.id]" class="card p-2 paginacion"
+        [ngClass]="{'card-oscura': i % 2 === 0, 'card-clara': i % 2 !== 0}"
+        [style.background-image]="serieCategoria === selectedSerieCategoria ? 'url(' + serieCategoria.imagen + ')' : ''"
+        (mouseleave)="onMouseLeaveCategoria()" (mouseenter)="onMouseEnterCategoria(serieCategoria)">
+
+        <div class="fondo-flip" *ngIf="serieCategoria === selectedSerieCategoria">
+          <div class="card-body card-flip">
+            <h5 class="card-title ">{{serieCategoria.nombre}}</h5>
+            <p class="card-flip-sinopsis">{{acortarSinopsisSerieCategoria(serieCategoria.sinopsis)}}</p>
+            <p class="card-flip-categorias">{{categoriasSerieAString(serieCategoria.categorias)}}</p>
+          </div>
+        </div>
+        <div *ngIf="serieCategoria !== selectedSerieCategoria">
+          <img class="card-img-top" src="{{ serieCategoria.imagen }}" alt="{{ serieCategoria.nombre }}" />
+          <h5 class="card-title">{{serieCategoria.nombre}}</h5>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 col-12 d-flex justify-content-center align-items-center">
+      <pagination-controls (pageChange)="p = $event" id="series-pagination"
+      previousLabel="Anterior"
+      nextLabel="Siguiente"></pagination-controls>
+    </div>
+  </div>
+</div>

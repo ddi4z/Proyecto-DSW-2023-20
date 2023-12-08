@@ -1,0 +1,78 @@
+<div class="container-fluid" *ngIf="showDetail">
+  <div class="row">
+    <div class="col-3">
+      <div class="poster">
+        <img class="img-fluid full-size-img" src="{{ plataformaDetail?.logo }}" alt="{{ plataformaDetail?.nombre }}" />
+      </div>
+    </div>
+    <div class="col info-serie">
+      <h1>{{ plataformaDetail?.nombre }}</h1>
+      <p>Conoce su sitio web <a href="{{ plataformaDetail?.sitioWeb }}" target="_blank">aquí</a></p>
+    </div>
+  </div>
+
+
+  <div class="row opciones">
+
+
+    <div class="col-lg-4 col-md-6 col-12 align-items-center justify-content-center d-flex">
+      <div class="btn-group ">
+        <div class="dropdown">
+          <button class="btn btn-azul-oscuro dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Precio
+          </button>
+          <ul class="dropdown-menu dropdown-oscuro">
+            <li>
+              <a class="dropdown-item" (click)="getPlanesPrecioCreciente()">Menor a mayor</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="getPlanesPrecioDecreciente()">Mayor a menor</a>
+            </li>
+          </ul>
+        </div>
+  
+  
+  
+        <div class="dropdown">
+          <button class="btn btn-azul-oscuro dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Puntaje
+          </button>
+          <ul class="dropdown-menu dropdown-oscuro">
+            <li>
+              <a class="dropdown-item" (click)="getPlanesPuntajeCreciente()">Menor a mayor</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="getPlanesPuntajeDecreciente()">Mayor a menor</a>
+            </li>
+          </ul>
+        </div>
+  
+  
+  
+  
+  
+      </div>
+    </div>
+    <div class="col-md-8 col-12 d-flex justify-content-center align-items-center">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchedPlan" autocomplete="off"
+        placeholder="Buscar un plan" />
+      <img src="../assets/lupa.png" alt="Lupa" width="35" height="35" />
+    </div>
+  </div>
+    
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 episodio" *ngFor="let plan of planes | filter : searchedPlan">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">{{ plan.nombre }}</h2>
+          <h5 class="card-title"><strong>Precio:</strong> {{ plan.precio }}</h5>
+          <h5 class="card-title"><strong>Puntaje:</strong> {{ plan.puntaje }}</h5>
+          <img class="card-img-top" src="{{plan.imagen}}" alt="{{plan.imagen}}">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

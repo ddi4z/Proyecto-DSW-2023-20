@@ -1,0 +1,215 @@
+.card-oscura {
+  background-color: #1363DF;
+  color: white;
+  border: 0px;
+}
+
+.card-clara {
+  background-color: #47B5FF;
+  color: white;
+  border: 0px;
+}
+
+
+
+.opciones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+}
+
+
+
+.title {
+  color: white;
+  text-align: center;
+
+}
+
+.btn-azul-oscuro {
+  background-color: #4E4FEB;
+  color: white;
+  border: 0px solid #4E4FEB;
+}
+
+
+
+input {
+  background-color: #000000;
+  color: #4E4FEB;
+  border: 3px solid #4E4FEB;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+input::placeholder {
+  color: #4E4FEB;
+}
+
+input:focus {
+  background-color: #000000;
+  color: #4E4FEB;
+  border: 3px solid #4E4FEB;
+}
+
+button {
+  background-color: #000000;
+  color: white;
+  border: 0px solid #4E4FEB;
+  margin: 5px;
+}
+
+.plataformas {
+  background-color: #000000;
+  color: #4E4FEB;
+}
+
+
+
+.notClickeable {
+  cursor: default;
+}
+
+.dropdown-oscuro {
+  background-color: #4E4FEB;
+}
+
+.dropdown-oscuro li a {
+  color: white;
+  background-color: #4E4FEB;
+}
+
+.dropdown-oscuro li a:hover {
+  background-color: #4040be;
+}
+
+label {
+  color: white;
+}
+
+.card {
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 20px;
+  min-height: 22rem;
+}
+
+.card img {
+  width: 100%;
+  height: 16rem;
+  object-fit: cover;
+}
+
+
+.categories-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.card-flip-categorias {
+  position: absolute;
+  bottom: 10px;
+  margin-right: 0.5rem;
+}
+
+
+
+.carrousel-background {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+}
+
+.carouselExampleInterval {
+  padding: 0;
+}
+
+.carousel-inner {
+  height: 90vh;
+  width: 100%;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  height: 90vh;
+  background: none;
+}
+
+.info-carrousel {
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+
+
+}
+
+.h2-carrousel {
+  color: white;
+
+}
+
+.p-carrousel {
+  max-width: 600px;
+  color: white;
+}
+
+.fondo-flip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.card-oscura .fondo-flip {
+  background-color: rgba(10, 50, 111, 0.9);
+}
+
+.card-clara .fondo-flip {
+  background-color: rgba(36, 90, 128, 0.9);
+}
+
+h5 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: white;
+  text-align: center;
+}
+
+#series-pagination ::ng-deep .ngx-pagination li a {
+  color: white;
+}
+
+#series-pagination ::ng-deep .ngx-pagination .current {
+  background: #1363DF;
+}
+
+
+#series-pagination ::ng-deep .ngx-pagination li a:hover {
+  background-color: #47B5FF;
+}
+
+.btn-serie{
+  background-color: #4E4FEB;
+  color: white;
+  margin: 5px;
+  width: 40%;
+}
+
+.btn-serie:hover {
+  background-color: #4040be;
+  cursor: pointer;
+}
+
+.btn-azul-oscuro:hover {
+  background-color: #4040be;
+  cursor: pointer;
+}
