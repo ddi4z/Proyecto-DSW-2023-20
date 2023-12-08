@@ -1,4 +1,5 @@
 # Proyecto-DSW-2023-20
+You can read the English version [here](https://github.com/ddi4z/Proyecto-DSW-2023-20/blob/main/ENGLISH.MD).
 
 Este proyecto se desarrolló a lo largo del semestre en el curso *Desarrollo de Software en Equipo (ISIS-2603)*, donde aplicamos conocimientos de front-end, back-end y métricas para garantizar calidad en el desarrollo y trabajo en equipo.
 
