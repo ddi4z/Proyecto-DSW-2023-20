@@ -1,6 +1,6 @@
 # Project-DSW-2023-20
 
-This project was developed throughout the semester in the course *Software Development in Teams (ISIS-2603)*, where we applied knowledge of front-end, back-end, and metrics to ensure quality in development and teamwork.
+This project was developed throughout the semester in the course *Software Development in Teams (ISIS-2603)* of Los Andes University, where we applied knowledge of front-end, back-end, and metrics to ensure the quality in development and teamwork.
 
 ## Project Description
 The application allows users to retrieve information about series from various streaming platforms, providing details on episodes, actors, directors, categories, and platforms. It was recognized as the best application in the section, according to the students' votes.
@@ -30,7 +30,7 @@ To use the application, run the *MainApplication* file within the "back" reposit
 - **Juan Felipe Camelo**
   - GitHub: [jfCamelo](https://github.com/jfCamelo)
 
-- **Juan Sebastian Sanchez**
+- **Juan Sebastián Sánchez**
   - GitHub: [JuanseSanchez](https://github.com/JuanseSanchez)
 
 - **Sara Benavides Mora**
