@@ -19,7 +19,10 @@ Ambos el back-end y el front-end cuentan con una amplia cobertura de pruebas. La
 ![Estado sonar](sonar.png)
 
 ## Uso
-Para utilizar la aplicación, ejecuta el archivo *MainApplication* dentro del repositorio "back". Luego, copia el archivo "poblacion.sql" (también del "back") en la consola disponible [aquí](http://localhost:8080/api/h2-console/). Finalmente, ejecuta el comando `ng serve` en el repositorio "front" y despliega el hipervínculo correspondiente.
+Para utilizar la aplicación, ejecuta el archivo *MainApplication* dentro del repositorio "back". Luego, copia el archivo "poblacion.sql" (también del "back") en la consola disponible [aquí](http://localhost:8080/api/h2-console/) (password: password). Finalmente, ejecuta el comando `ng serve` en el repositorio "front" y despliega el hipervínculo correspondiente.
+
+## Origen de los Datos
+Los datos en el archivo SQL provienen principalmente de la API de [TVMaze](https://www.tvmaze.com/api), mientras que otros fueron recopilados mediante consultas en línea. Ningún miembro del equipo reclama propiedad sobre las series presentadas en la aplicación. Todo el trabajo se llevó a cabo con fines educativos y sin ánimo de lucro.
 
 ## Participantes
 - **Sara Sofía Cárdenas Rodríguez - Líder del Proyecto**

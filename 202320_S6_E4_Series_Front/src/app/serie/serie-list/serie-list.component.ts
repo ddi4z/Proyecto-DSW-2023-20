@@ -50,7 +50,7 @@ export class SerieListComponent implements OnInit {
         let series = apiData;
         let serie1 = series[4];
         let serie2 = series[29];
-        let serie3 = series[17];
+        let serie3 = series[48];
 
 
 

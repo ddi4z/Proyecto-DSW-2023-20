@@ -18,7 +18,10 @@ Both the back-end and front-end have extensive test coverage. Back-end tests are
 ![Sonar Status](sonar.png)
 
 ## Usage
-To use the application, run the *MainApplication* file within the "back" repository. Then, copy the "poblacion.sql" file (also from the "back") into the console available [here](http://localhost:8080/api/h2-console/). Finally, run the `ng serve` command in the "front" repository and deploy the corresponding hyperlink.
+To use the application, run the *MainApplication* file within the "back" repository. Then, copy the "poblacion.sql" file (also from the "back") into the console available [here](http://localhost:8080/api/h2-console/) (password: password). Finally, run the `ng serve` command in the "front" repository and deploy the corresponding hyperlink.
+
+## Data Source
+The data in the SQL file is primarily sourced from the [TVMaze](https://www.tvmaze.com/api) API, with additional information collected through online queries. No team member claims ownership of the series featured in the application. All work was conducted for educational purposes and without any profit motive.
 
 ## Participants
 - **Sara Sofía Cárdenas Rodríguez - Project Leader**
